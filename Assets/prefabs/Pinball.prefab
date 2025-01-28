@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2694761747920146242}
   - component: {fileID: 9091628374094977580}
   - component: {fileID: 4294800351729424196}
+  - component: {fileID: 3797808230431473649}
   m_Layer: 0
   m_Name: Pinball
   m_TagString: Untagged
@@ -148,3 +149,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3797808230431473649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139666083122808862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dedbfd78fc2f1c429e4838a430f2494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 9091628374094977580}
