@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1251560296423196452}
   - component: {fileID: 5580466142158982655}
   m_Layer: 0
-  m_Name: FlipperR
+  m_Name: FlipperL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2146770445440505324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6, y: -3, z: 0}
+  m_LocalPosition: {x: 2, y: -3, z: 0}
   m_LocalScale: {x: 0.8036, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5580466142158982655}
   pivot: {fileID: 2755349486944597126}
-  isLeftFlipper: 0
+  isLeftFlipper: 1
 --- !u!50 &5580466142158982655
 Rigidbody2D:
   serializedVersion: 4
@@ -223,7 +223,7 @@ Transform:
   m_GameObject: {fileID: 2755349486944597126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.7, z: 0.11131844}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0.11131844}
   m_LocalScale: {x: 0.8333331, y: 1.2443998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
