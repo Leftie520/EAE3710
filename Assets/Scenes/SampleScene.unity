@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1251560296423196452, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
+      propertyPath: isLeftFlipper
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2146770445440505324, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
       propertyPath: m_Name
       value: FlipperL
@@ -420,44 +424,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.7
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1251560296423196452, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2146770445440505324, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1469140817}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
---- !u!1 &1469140811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2146770445440505324, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
-  m_PrefabInstance: {fileID: 1023603334}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1469140812 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 5580466142158982655, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
-  m_PrefabInstance: {fileID: 1023603334}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1469140817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469140811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7768364018d1e040af99d0c5b25119d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1469140812}
-  pivot: {fileID: 1511620067}
---- !u!1 &1511620067 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2755349486944597126, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
-  m_PrefabInstance: {fileID: 1023603334}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2084768201 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7100749310174454466, guid: 61257ebaa9c8c974aa43534e3fa7e2ed, type: 3}
