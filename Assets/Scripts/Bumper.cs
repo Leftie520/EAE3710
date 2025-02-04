@@ -16,8 +16,10 @@ public class Bumper : MonoBehaviour
     {
         
     }
+    
 
-    void OnTriggerEnter2D(Collider2D col)
+
+    void OnCollisionEnter2D(Collision2D col)
     {
         // getting the other collider (better be a goddamn ball :)
         GameObject obj = col.gameObject;
@@ -29,7 +31,7 @@ public class Bumper : MonoBehaviour
         newVel *= 20;
 
         // actually setting the new ball velocity
-        rb.velocity = newVel;
+        rb.linearVelocity = newVel;
 
 
     }
