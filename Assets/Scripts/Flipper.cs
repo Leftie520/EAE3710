@@ -28,7 +28,7 @@ public class Flipper : MonoBehaviour
     void Start()
     {
         pivotPos = pivot.transform.position;
-        rotationSpeed = 900;
+        rotationSpeed = 600;
 
         if (isLeftFlipper)
             input = KeyCode.LeftArrow;
@@ -43,12 +43,58 @@ public class Flipper : MonoBehaviour
         updateRotation(Input.GetKey(input));
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+
+        // determining how far away the ball is from the pivot
+        float distFromPivot = Mathf.Sqrt(Mathf.Pow(collision.transform.position.x-pivotPos.x,2) + Mathf.Pow(collision.transform.position.y - pivotPos.y, 2));        
+
+        float exitVel = distFromPivot * 8;
+
+
+        // these numbers feel ok; the larger distFromPivot is, the more the velocity is x-bound and the smaller, the more it's
+        // y-bound
+        distFromPivot /= 2f;
+        distFromPivot -= 0.1f;
+
+
+        // determining the exit angle
+        Vector3 exitDir = Vector3.zero;
+        exitDir.x = Mathf.Cos(Mathf.Deg2Rad * 60 * (distFromPivot + 1));
+        exitDir.y = Mathf.Sin(Mathf.Deg2Rad * 60 * (distFromPivot + 1));
+
+        if (isLeftFlipper)
+            exitDir.x *= -1;
+
+        Debug.Log("X: " + exitDir.x);
+        Debug.Log("Y: " + exitDir.y);
+
+
+        exitDir = exitDir.normalized;
+
+        // final launch values
+        exitDir *= exitVel;
+
+        if (isLeftFlipper)
+        {
+            if (Mathf.Abs(transform.rotation.eulerAngles.z - 60) < 2f || Math.Abs(transform.rotation.eulerAngles.z - 120) < 2f || !Input.GetKey(KeyCode.LeftArrow))
+                return;
+        }
+        else
+        {
+            if (Mathf.Abs(transform.rotation.eulerAngles.z - 60) < 2f || Math.Abs(transform.rotation.eulerAngles.z - 120) < 2f || !Input.GetKey(KeyCode.RightArrow))
+                return;
+        }
+
+        collision.rigidbody.linearVelocity = exitDir;
+
+    }
 
     private void updateRotation(bool keyHeld)
     {
         float currAngle = transform.rotation.eulerAngles.z;
         float deltaAngle;
-        Debug.Log(transform.rotation.eulerAngles.z);
 
         
         // using an XOR operator so that not holding a left flipper turns it clockwise and not holding a right flipper

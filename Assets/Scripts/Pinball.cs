@@ -6,6 +6,8 @@ public class Pinball : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D rb;
+
+    public string prefabPath = "Prefabs/Pinball";
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,14 @@ public class Pinball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (rb.transform.position.y < -6)
+        {
+            GameManager.Instance.SpawnBall();
+            Debug.Log("Ball dying");
+            Destroy(this.gameObject);
+        }
+            
+
     }
+
 }

@@ -33,7 +33,14 @@ public class Bumper : MonoBehaviour
         // actually setting the new ball velocity
         rb.linearVelocity = newVel;
 
+        // this value will likely change as balancing ensues.
+        Score(100);
 
+    }
+
+    protected virtual void Score(int score)
+    {
+        GameManager.Instance.addScore(score);
     }
 
 }
