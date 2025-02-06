@@ -1,10 +1,12 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static GameManager;
 
-public class GameManager
+public class GameManager: MonoBehaviour
 {
 
     /// <summary>
@@ -27,6 +29,12 @@ public class GameManager
     /// </summary>
     private int score;
 
+
+    [SerializeField]
+    /// <summary>
+    /// a reference to the text GO that displays the current round score.
+    /// </summary>
+    public TMP_Text scoreText;
 
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
@@ -54,18 +62,22 @@ public class GameManager
         // accessing the game manager, creating one in the process if necessary.
         get
         {
-            Debug.Log("Attempting to access GM");
+            //Debug.Log("Attempting to access GM");
             if (instance == null)
             {
-                instance = new GameManager();
-                Debug.Log("new GM created");
+                Debug.Log("shit");
             }
 
             return instance;
         }
     }
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
     /// <summary>
     /// adds a value to the current score
     /// </summary>
@@ -73,6 +85,10 @@ public class GameManager
     public void addScore(int additive)
     {
         this.score += additive;
+        Debug.Log(score  + " is the new score.");
+        // updating the score text field
+        scoreText.text = "Current Score: " + score;
+        
     }
 
 
@@ -81,7 +97,7 @@ public class GameManager
     /// </summary>
     public void SpawnBall()
     {
-        Pinball ball = null;
+        Pinball ball;
             
         // getting the next ball in the sequence, calls a game over if there aren't any left.
         try
@@ -95,7 +111,7 @@ public class GameManager
         }
 
         GameObject ballAsGO = (GameObject)Resources.Load(ball.prefabPath, typeof(GameObject));
-        ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(-2f, 0, 0), new Quaternion());
+        ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(6.5f, 0, 0), new Quaternion());
 
         // syncing the ball up with the cameraMovementManager (THIS CODE FEELS SO YUCKY WHY DOES IT WORK LMAO)
         Camera camera = GameObject.FindAnyObjectByType<Camera>();
