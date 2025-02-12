@@ -106,7 +106,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0.75
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b58187f501eb4664d8ab20d213c1a8ef, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -166,4 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 9091628374094977580}
-  pinballPrefab: {fileID: 8139666083122808862}
+  prefabPath: Prefabs/Pinball

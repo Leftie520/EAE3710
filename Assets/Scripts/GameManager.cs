@@ -111,7 +111,7 @@ public class GameManager: MonoBehaviour
         }
 
         GameObject ballAsGO = (GameObject)Resources.Load(ball.prefabPath, typeof(GameObject));
-        ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(6.5f, 0, 0), new Quaternion());
+        ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(6f, -4f, 0), new Quaternion());
 
         // syncing the ball up with the cameraMovementManager (THIS CODE FEELS SO YUCKY WHY DOES IT WORK LMAO)
         Camera camera = GameObject.FindAnyObjectByType<Camera>();

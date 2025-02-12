@@ -11,7 +11,7 @@ public class CameraMovementManager : MonoBehaviour
 
     void Start()
     {
-        
+        this.transform.position = new Vector3(transform.position.x, ball.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class CameraMovementManager : MonoBehaviour
         
         // TODO: this is called even during gmae-overs and other non-gameplay scenes, causes errors with nonexistant pinballs.
         
-        if (ball.transform.position.y > 0)
+        if (ball.transform.position.y > -3)
             this.transform.position = new Vector3(transform.position.x, ball.position.y, transform.position.z);
     }
 }

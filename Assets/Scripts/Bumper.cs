@@ -28,7 +28,7 @@ public class Bumper : MonoBehaviour
         // finding the angle of the collision and normalizing the new ball velocity
         Vector3 newVel = new Vector3(rb.position.x, rb.position.y) - transform.position;
         newVel.Normalize();
-        newVel *= 20;
+        newVel *= 16;
 
         // actually setting the new ball velocity
         rb.linearVelocity = newVel;

@@ -43,12 +43,12 @@ public class Flipper : MonoBehaviour
         updateRotation(Input.GetKey(input));
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
 
 
         // determining how far away the ball is from the pivot
-        float distFromPivot = Mathf.Sqrt(Mathf.Pow(collision.transform.position.x-pivotPos.x,2) + Mathf.Pow(collision.transform.position.y - pivotPos.y, 2));        
+        float distFromPivot = Mathf.Sqrt(Mathf.Pow(collision.transform.position.x - pivotPos.x, 2) + Mathf.Pow(collision.transform.position.y - pivotPos.y, 2));
 
         float exitVel = distFromPivot * 8;
 
@@ -75,6 +75,7 @@ public class Flipper : MonoBehaviour
 
         // final launch values
         exitDir *= exitVel;
+
 
         if (isLeftFlipper)
         {

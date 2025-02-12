@@ -18,7 +18,7 @@ public class Pinball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb.transform.position.y < -6)
+        if (rb.transform.position.y < -8)
         {
             GameManager.Instance.SpawnBall();
             Debug.Log("Ball dying");
@@ -26,6 +26,11 @@ public class Pinball : MonoBehaviour
         }
             
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       
     }
 
 }
