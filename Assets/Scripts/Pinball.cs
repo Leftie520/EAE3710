@@ -10,6 +10,7 @@ public class Pinball : MonoBehaviour
     public string prefabPath = "Prefabs/Pinball";
     
     // Start is called before the first frame update
+    // A Virus has been detected
     void Start()
     {
         
