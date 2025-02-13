@@ -36,6 +36,12 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public TMP_Text scoreText;
 
+    [SerializeField]
+    /// <summary>
+    /// a reference to the GO that blocks the chamber.
+    /// </summary>
+    public ChamberBlocker blocker;
+
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
     /// because the game manager will be created before the objects
@@ -119,6 +125,11 @@ public class GameManager: MonoBehaviour
         cmm.ball = ballAsGO.GetComponent<Rigidbody2D>();
 
         ballLineupIndex++;
+
+        // allowing the next ball to go through the full chamber and not get stopped.
+        blocker.GetComponent<BoxCollider2D>().isTrigger = true;
+
+        
     }
 
 
