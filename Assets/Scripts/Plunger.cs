@@ -20,8 +20,9 @@ public class Plunger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        
         float deltaY = 0;
 
         if (Input.GetKey(KeyCode.DownArrow))
