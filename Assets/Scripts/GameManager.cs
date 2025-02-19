@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,12 +30,27 @@ public class GameManager: MonoBehaviour
     /// </summary>
     private int score;
 
+    /// <summary>
+    /// stores how much time is remaining for that ball
+    /// </summary>
+    public float timer;
+
+    /// <summary>
+    /// stores whether or not we are in control of the flippers (i.e. if the timer is going)
+    /// </summary>
+    public bool ballInField;
 
     [SerializeField]
     /// <summary>
     /// a reference to the text GO that displays the current round score.
     /// </summary>
     public TMP_Text scoreText;
+
+    [SerializeField]
+    /// <summary>
+    /// a reference to the text GO that displays the current round time.
+    /// </summary>
+    public TMP_Text timerText;
 
     [SerializeField]
     /// <summary>
@@ -48,6 +64,8 @@ public class GameManager: MonoBehaviour
     /// </summary>
     private GameManager()
     {
+        timer = 30f;
+        ballInField = false;
 
         score = 0;
         ballLineup = new List<Pinball>();
@@ -64,7 +82,7 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public static GameManager Instance
     {
-        
+
         // accessing the game manager, creating one in the process if necessary.
         get
         {
@@ -85,6 +103,28 @@ public class GameManager: MonoBehaviour
 
 
     /// <summary>
+    /// called every frame
+    /// </summary>
+    private void Update()
+    {
+        if (ballInField)
+        {
+            Debug.Log("test");
+            timer -= Time.deltaTime;
+            timerText.text = "Time: " + timer.ToString("0.0");
+            if (timer < 0)
+            {
+                ballInField = false;
+                timer = 0;
+                setFlippersEnabled(false);
+            }
+        }
+
+        
+    }
+
+
+    /// <summary>
     /// adds a value to the current score
     /// </summary>
     /// <param name="additive"> the score being added to the total </param>
@@ -97,7 +137,21 @@ public class GameManager: MonoBehaviour
         
     }
 
+    /// <summary>
+    /// as the name implies, this shuts down the flippers
+    /// </summary>
+    private void setFlippersEnabled(bool enabled)
+    {
+        // in theory this is accessing all flippers
+        Flipper[] flippers = GameObject.FindObjectsByType<Flipper>(new FindObjectsSortMode());
 
+        // disabling each flipper
+        foreach (Flipper flipper in flippers)
+        {
+            flipper.isControllable = enabled;
+        }
+    }
+    
     /// <summary>
     /// spawns the next ball in the lineup; called whenever a round starts or the current ball falls off screen.
     /// </summary>
@@ -119,7 +173,7 @@ public class GameManager: MonoBehaviour
         GameObject ballAsGO = (GameObject)Resources.Load(ball.prefabPath, typeof(GameObject));
         ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(6f, -4f, 0), new Quaternion());
 
-        // syncing the ball up with the cameraMovementManager (THIS CODE FEELS SO YUCKY WHY DOES IT WORK LMAO)
+        // syncing the ball up with the cameraMovementManager 
         Camera camera = GameObject.FindAnyObjectByType<Camera>();
         CameraMovementManager cmm = camera.GetComponent<CameraMovementManager>();
         cmm.ball = ballAsGO.GetComponent<Rigidbody2D>();
@@ -128,6 +182,11 @@ public class GameManager: MonoBehaviour
 
         // allowing the next ball to go through the full chamber and not get stopped.
         blocker.GetComponent<BoxCollider2D>().isTrigger = true;
+
+        setFlippersEnabled(true);
+        timer = 30f;
+        timerText.text = "Time: 30";
+        ballInField = false;
 
         
     }

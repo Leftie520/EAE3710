@@ -5,6 +5,10 @@ using UnityEngine.U2D;
 
 public class LeftTriBumper : MonoBehaviour
 {
+
+    [SerializeField]
+    private bool isLeftBumper;
+
     // Start is called before the first frame update
     void Start()
     {
