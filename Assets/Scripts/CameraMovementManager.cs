@@ -11,7 +11,7 @@ public class CameraMovementManager : MonoBehaviour
 
     void Start()
     {
-        this.transform.position = new Vector3(transform.position.x, ball.position.y, transform.position.z);
+        this.transform.position = new Vector3(transform.position.x, -2.3f, transform.position.z);
     }
 
     // Update is called once per frame

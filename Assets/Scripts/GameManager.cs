@@ -106,7 +106,7 @@ public class GameManager: MonoBehaviour
         }
 
         levelScoreTargets = new List<int>();
-        levelScoreTargets.Add(1000);
+        levelScoreTargets.Add(100);
         levelScoreTargets.Add(2500);
         levelScoreTargets.Add(4000);
         levelScoreTargets.Add(5500);
@@ -157,7 +157,6 @@ public class GameManager: MonoBehaviour
     {
         if (ballInField)
         {
-            //Debug.Log("test");
             timer -= Time.deltaTime;
             timerText.text = "Time: " + timer.ToString("0.0");
             if (timer < 0)
@@ -171,12 +170,8 @@ public class GameManager: MonoBehaviour
         if(timer <= 0)
         {
             setFlippersEnabled(false);
-            prepareForLevelUp();
-            //Debug.Log("game over!");
-            //return;
         }
 
-        //Debug.Log("Timer: " + timer);
     }
 
 
@@ -213,6 +208,9 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public void SpawnBall()
     {
+        if (score >= levelScoreTargets[currentLevel])
+            prepareForLevelUp();
+
         Pinball ball;
             
         // getting the next ball in the sequence, calls a game over if there aren't any left.
@@ -240,8 +238,8 @@ public class GameManager: MonoBehaviour
         blocker.GetComponent<BoxCollider2D>().isTrigger = true;
 
         setFlippersEnabled(true);
-        //timer = 30f;
-        //timerText.text = "Time: 30";
+        timer = 30f;
+        timerText.text = "Time: 30";
         ballInField = false;
 
         
@@ -259,8 +257,8 @@ public class GameManager: MonoBehaviour
 
     private void prepareForLevelUp()
     {
-        if(!ballInField)
-        {
+        Debug.Log("levelling up");
+
             if (score < levelScoreTargets[currentLevel])
             {
                 endGame();
@@ -268,16 +266,12 @@ public class GameManager: MonoBehaviour
 
             currentLevel++;
             score = 0;
-            timer = 45f;
-            while(ballLineup.Count <= 4)
-            {
-                ballLineup.Add(new Pinball());
-            }
+            timer = 30f;
+            ballLineupIndex = 0;
             timerText.text = "Time: " + timer.ToString("0.0");
             scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
             currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
             scoreText.text = "Current Score: " + score;
-        }
     }
 
 }
