@@ -141,7 +141,7 @@ public class GameManager: MonoBehaviour
     private void Awake()
     {
         instance = this;
-        timer = 45f;
+        timer = 30f;
         timerText.text = "Time: 45";
         scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
         currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
@@ -238,6 +238,8 @@ public class GameManager: MonoBehaviour
         blocker.GetComponent<BoxCollider2D>().isTrigger = true;
 
         setFlippersEnabled(true);
+
+        // Hey this makes the timer respective to each ball
         timer = 30f;
         timerText.text = "Time: 30";
         ballInField = false;
