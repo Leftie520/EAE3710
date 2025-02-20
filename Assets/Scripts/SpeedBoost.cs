@@ -3,26 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class RightTriBumper : MonoBehaviour
+public class SpeedBoost : MonoBehaviour
 {
-    public int score;
-    // Start is called before the first frame update
+    public int xDir;
+
+    public int yDir;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D col)
     {
-
-    }
-
-
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        // getting the other collider (better be a goddamn ball :)
         GameObject obj = col.gameObject;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
@@ -30,19 +24,15 @@ public class RightTriBumper : MonoBehaviour
         // Vector3 newVel = new Vector3(rb.position.x, rb.position.y) - transform.position;
         Vector3 newVel = new Vector3(-1, 1, 0);
         newVel.Normalize();
-        newVel *= 20;
+        newVel *= 50;
 
         // actually setting the new ball velocity
         rb.linearVelocity = newVel;
-
-        // this value will likely change as balancing ensues.
-        Score(score);
-
     }
 
-    protected virtual void Score(int score)
+    // Update is called once per frame
+    void Update()
     {
-        GameManager.Instance.addScore(score);
+        
     }
-
 }

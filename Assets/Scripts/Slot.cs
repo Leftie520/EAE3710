@@ -5,6 +5,8 @@ using UnityEngine.U2D;
 
 public class Slot : MonoBehaviour
 {
+
+    public int score; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +25,7 @@ public class Slot : MonoBehaviour
         //GameObject obj = col.gameObject;
         //Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
-        Score(500);
+        Score(score);
     }
 
     protected virtual void Score(int score)

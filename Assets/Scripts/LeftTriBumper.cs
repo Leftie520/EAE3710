@@ -5,6 +5,7 @@ using UnityEngine.U2D;
 
 public class LeftTriBumper : MonoBehaviour
 {
+    public int score;
 
     [SerializeField]
     private bool isLeftBumper;
@@ -39,7 +40,7 @@ public class LeftTriBumper : MonoBehaviour
         rb.linearVelocity = newVel;
 
         // this value will likely change as balancing ensues.
-        Score(50);
+        Score(score);
 
     }
 

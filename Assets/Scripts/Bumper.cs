@@ -6,6 +6,7 @@ using UnityEngine.U2D;
 public class Bumper : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int score;
     void Start()
     {
         
@@ -34,7 +35,7 @@ public class Bumper : MonoBehaviour
         rb.linearVelocity = newVel;
 
         // this value will likely change as balancing ensues.
-        Score(100);
+        Score(score);
 
     }
 
