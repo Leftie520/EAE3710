@@ -21,7 +21,7 @@ public class CameraMovementManager : MonoBehaviour
         
         // TODO: this is called even during game-overs and other non-gameplay scenes, causes errors with nonexistant pinballs.
         
-        if (ball.transform.position.y > -2.3)
+        if (ball.transform.position.y > -2.3 && ball.transform.position.y < 18)
             this.transform.position = new Vector3(transform.position.x, ball.position.y, transform.position.z);
     }
 }
