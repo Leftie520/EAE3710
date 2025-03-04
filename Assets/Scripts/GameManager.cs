@@ -86,6 +86,9 @@ public class GameManager: MonoBehaviour
     [SerializeField]
     public TMP_Text gameOverText;
 
+    [SerializeField]
+    public TMP_Text shopText;
+
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
     /// because the game manager will be created before the objects
@@ -146,7 +149,8 @@ public class GameManager: MonoBehaviour
         scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
         currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
         gameOverText.text = "GAME OVER";
-        gameOverText.gameObject.SetActive(false);
+        gameOverText.enabled = false;
+        shopText.enabled = false;
     }
 
 
@@ -253,27 +257,38 @@ public class GameManager: MonoBehaviour
     private void endGame()
     {
         // Insert code to state GAME OVER on Screen
-        gameOverText.gameObject.SetActive(true);
-        Debug.Log("GAME OVER");
+        gameOverText.enabled = true;
     }
 
     private void prepareForLevelUp()
     {
         Debug.Log("levelling up");
 
-            if (score < levelScoreTargets[currentLevel])
-            {
-                endGame();
-            }
+        if (score < levelScoreTargets[currentLevel])
+        {
+            endGame();
+        }
 
-            currentLevel++;
-            score = 0;
-            timer = 30f;
-            ballLineupIndex = 0;
-            timerText.text = "Time: " + timer.ToString("0.0");
-            scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
-            currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
-            scoreText.text = "Current Score: " + score;
+        currentLevel++;
+        score = 0;
+        timer = 30f;
+        ballLineupIndex = 0;
+        timerText.text = "Time: " + timer.ToString("0.0");
+        scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
+        currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
+        scoreText.text = "Current Score: " + score;
+        switchToShop();
+    }
+
+    private void switchToShop()
+    {
+        shopText.enabled = true;
+        timerText.enabled = false;
+        currentLevelText.enabled = false;
+        scoreText.enabled = false;
+        scoreTargetText.enabled = false;
+
+        
     }
 
 }
