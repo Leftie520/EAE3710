@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 8513b79162d00324d90f76e1995b8609
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4371717292222004777
+    second: NewPinballBG_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NewPinballBG_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2433
+        height: 4608
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 600.5, y: -462}
+        - {x: 800.5, y: -664}
+        - {x: 798.5, y: -1402}
+        - {x: -80.5, y: -2280}
+        - {x: -80.5, y: -2304}
+        - {x: 831.5, y: -2304}
+        - {x: 831.5, y: 1464}
+        - {x: 800.5, y: 1464}
+        - {x: 800.5, y: 1272}
+        - {x: 679.5, y: 1030}
+        - {x: 679.5, y: 376}
+        - {x: 801.5, y: 255}
+        - {x: 800.5, y: 64}
+        - {x: 600.5, y: -138}
+      - - {x: -992.5, y: -1248}
+        - {x: -623.5, y: -1615}
+        - {x: -594.5, y: -1615}
+        - {x: -569.5, y: -1591}
+        - {x: -569.5, y: -1561}
+        - {x: -929.5, y: -1202}
+        - {x: -929.5, y: -937}
+        - {x: -959.5, y: -921}
+        - {x: -991.5, y: -937}
+      - - {x: 544.5, y: -1201}
+        - {x: 184.5, y: -1561}
+        - {x: 184.5, y: -1590}
+        - {x: 209.5, y: -1615}
+        - {x: 238.5, y: -1615}
+        - {x: 606.5, y: -1247}
+        - {x: 606.5, y: -937}
+        - {x: 576.5, y: -921}
+        - {x: 544.5, y: -937}
+      - - {x: -960.5, y: 1265}
+        - {x: -911.5, y: 1233}
+        - {x: -864.5, y: 1265}
+        - {x: -864.5, y: 1592}
+        - {x: -911.5, y: 1624}
+        - {x: -960.5, y: 1592}
+      - - {x: 478.5, y: 1264}
+        - {x: 527.5, y: 1234}
+        - {x: 574.5, y: 1264}
+        - {x: 574.5, y: 1591}
+        - {x: 527.5, y: 1625}
+        - {x: 480.5, y: 1590}
+      - - {x: -1185.5, y: 257}
+        - {x: -1066.5, y: 377}
+        - {x: -1065.5, y: 1030}
+        - {x: -1183.5, y: 1269}
+        - {x: -1185.5, y: 1612}
+        - {x: -1216.5, y: 1647}
+        - {x: -1216.5, y: -2304}
+        - {x: -304.5, y: -2304}
+        - {x: -304.5, y: -2281}
+        - {x: -1182.5, y: -1402}
+        - {x: -1186.5, y: -664}
+        - {x: -985.5, y: -463}
+        - {x: -985.5, y: -138}
+        - {x: -1185.5, y: 63}
+      - - {x: 449.5, y: 2265}
+        - {x: -447.5, y: 2264}
+        - {x: -625.5, y: 2217}
+        - {x: -753.5, y: 2161}
+        - {x: -888.5, y: 2073}
+        - {x: -976.5, y: 2001}
+        - {x: -1081.5, y: 1882}
+        - {x: -1145.5, y: 1777}
+        - {x: -1185.5, y: 1612}
+        - {x: -1216.5, y: 1647}
+        - {x: -1216.5, y: 2304}
+        - {x: 1216.5, y: 2304}
+        - {x: 1216.5, y: 1610}
+        - {x: 1185.5, y: 1610}
+        - {x: 1153.5, y: 1753}
+        - {x: 1113.5, y: 1841}
+        - {x: 1048.5, y: 1929}
+        - {x: 937.5, y: 2033}
+        - {x: 753.5, y: 2161}
+        - {x: 625.5, y: 2217}
+      - - {x: 1184.5, y: -2281}
+        - {x: 831.5, y: -2280}
+        - {x: 831.5, y: -2304}
+        - {x: 1216.5, y: -2304}
+        - {x: 1216.5, y: 1610}
+        - {x: 1185.5, y: 1610}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e335507b57bac30800000000000000
+      internalID: 4371717292222004777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 514807d2cb533db4d905a68948499e23
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NewPinballBG_0: 4371717292222004777
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
