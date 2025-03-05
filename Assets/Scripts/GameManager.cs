@@ -86,8 +86,6 @@ public class GameManager: MonoBehaviour
     [SerializeField]
     public TMP_Text gameOverText;
 
-    [SerializeField]
-    public TMP_Text shopText;
 
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
@@ -123,7 +121,7 @@ public class GameManager: MonoBehaviour
     }
 
     /// <summary>
-    /// Because the gameManager is a singleton, this accesses the single gameManager instance.
+    /// Because the GameManager is a singleton, this accesses the single gameManager instance.
     /// </summary>
     public static GameManager Instance
     {
@@ -150,7 +148,6 @@ public class GameManager: MonoBehaviour
         currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
         gameOverText.text = "GAME OVER";
         gameOverText.enabled = false;
-        shopText.enabled = false;
     }
 
 
@@ -187,6 +184,7 @@ public class GameManager: MonoBehaviour
     {
         this.score += additive;
         Debug.Log(score  + " is the new score.");
+
         // updating the score text field
         scoreText.text = "Current Score: " + score;
         
@@ -269,6 +267,7 @@ public class GameManager: MonoBehaviour
             endGame();
         }
 
+        // reseting a bunch of values for when the next level starts
         currentLevel++;
         score = 0;
         timer = 30f;
@@ -277,18 +276,15 @@ public class GameManager: MonoBehaviour
         scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
         currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
         scoreText.text = "Current Score: " + score;
-        switchToShop();
-    }
 
-    private void switchToShop()
-    {
-        shopText.enabled = true;
+        // making the game-based information invisible since it's not needed in the shop
         timerText.enabled = false;
         currentLevelText.enabled = false;
         scoreText.enabled = false;
         scoreTargetText.enabled = false;
 
-        
+        //starting the shop
+        ShopManager.Instance.StartShop();
     }
 
 }

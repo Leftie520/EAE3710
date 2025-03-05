@@ -1,28 +1,68 @@
+using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+
+    /// <summary>
+    /// private storage for the Instance property.
+    /// </summary>
+    private static ShopManager instance;
+
+    /// <summary>
+    /// displays the word 'shop' (god I love this major)
+    /// </summary>
+    [SerializeField]
+    public TMP_Text shopText;
+
+    /// <summary>
+    /// storage for the startButton as a GameObject
+    /// </summary>
     [SerializeField]
     public SpriteRenderer startButton;
 
+    /// <summary>
+    /// storage for the rerollButton as a GameObject
+    /// </summary>
     [SerializeField]
     public SpriteRenderer rerollButton;
 
+    /// <summary>
+    /// storage for the first item button as a GameObject
+    /// </summary>
     [SerializeField]
     public SpriteRenderer shopSpace1;
 
+    /// <summary>
+    /// storage for the second item button as a GameObject
+    /// </summary>
     [SerializeField]
     public SpriteRenderer shopSpace2;
 
+    /// <summary>
+    /// storage for the third item button as a GameObject
+    /// </summary>
     [SerializeField]
     public SpriteRenderer shopSpace3;
 
+    /// <summary>
+    /// Jake what do these do? :|
+    /// 
+    /// Like if we're replacing each button with a 'lock button', then shouldn't we just override the current button space?
+    /// If so, why do we need these?!
+    /// </summary>
     [SerializeField]
     public SpriteRenderer lock1;
 
+    /// <summary>
+    /// read above
+    /// </summary>
     [SerializeField]
     public SpriteRenderer lock2;
 
+    /// <summary>
+    /// read slightly further above
+    /// </summary>
     [SerializeField]
     public SpriteRenderer lock3;
 
@@ -32,14 +72,50 @@ public class ShopManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// called when the manager is first created
+    /// </summary>
+    private void Awake()
+    {
+        instance = this;
+
+        // since the shop manager is created at the beginning of the game, this will immediately fire.
+        // if we choose to create the manager later into the game's lifecycle, this will need to be moved.
+        shopText.enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
 
     }
 
-    void MoveToShop()
+    /// <summary>
+    /// Because the ShopManager is a singleton, this accesses the single gameManager instance.
+    /// </summary>
+    public static ShopManager Instance
     {
+
+        // accessing the game manager, creating one in the process if necessary.
+        get
+        {
+            
+            if (instance == null)
+            {
+                Debug.Log("shit");
+            }
+
+            return instance;
+        }
+    }
+
+
+
+    public void StartShop()
+    {
+        shopText.enabled = true;
+
+
         // Turn on cursor
         // Switch to Shop UI
         // Set Values
