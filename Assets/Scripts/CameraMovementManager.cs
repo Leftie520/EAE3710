@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CameraMovementManager : MonoBehaviour
 {
-    // Start is called before the first frame update
 
+    /// <summary>
+    /// references the pinball currently in play.
+    /// </summary>
     [SerializeField]
     public Rigidbody2D ball;
 
+    // Start is called before the first frame update
     void Start()
     {
         this.transform.position = new Vector3(transform.position.x, -2.3f, transform.position.z);
@@ -21,7 +24,7 @@ public class CameraMovementManager : MonoBehaviour
         
         // TODO: this is called even during game-overs and other non-gameplay scenes, causes errors with nonexistant pinballs.
         
-        if (ball.transform.position.y > -2.3)
+        if (ball && ball.transform.position.y > -2.3)
             this.transform.position = new Vector3(transform.position.x, ball.position.y, transform.position.z);
     }
 }

@@ -84,8 +84,6 @@ public class Flipper : MonoBehaviour
         if (!isControllable) return;
 
 
-        Debug.Log("ball has been launched");
-
         // we don't want to override a previous calculation of the ball trajectory, but we need to use
         // collisionStay for when the player waits a moment to launch the ball.
         if (launchedBallRecently)
@@ -148,7 +146,6 @@ public class Flipper : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         launchedBallRecently = false;
-        Debug.Log("ball has left flipper");
     }
 
     private void updateRotation(bool keyHeld)
