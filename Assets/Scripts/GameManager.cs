@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static GameManager;
 
@@ -107,7 +108,7 @@ public class GameManager: MonoBehaviour
         }
 
         levelScoreTargets = new List<int>();
-        levelScoreTargets.Add(1000);
+        levelScoreTargets.Add(100);
         levelScoreTargets.Add(2500);
         levelScoreTargets.Add(4000);
         levelScoreTargets.Add(5500);
@@ -211,7 +212,10 @@ public class GameManager: MonoBehaviour
     public void SpawnBall()
     {
         if (score >= levelScoreTargets[currentLevel])
+        {
             prepareForLevelUp();
+            return;
+        }
 
         Pinball ball;
             
@@ -284,7 +288,8 @@ public class GameManager: MonoBehaviour
         scoreTargetText.enabled = false;
 
         //starting the shop
-        ShopManager.Instance.StartShop();
+        Debug.Log("attempting to load shop");
+        SceneManager.LoadScene("ShopScene", LoadSceneMode.Single);
     }
 
 }

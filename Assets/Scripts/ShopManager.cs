@@ -10,12 +10,6 @@ public class ShopManager : MonoBehaviour
     private static ShopManager instance;
 
     /// <summary>
-    /// displays the word 'shop' (god I love this major)
-    /// </summary>
-    [SerializeField]
-    public TMP_Text shopText;
-
-    /// <summary>
     /// storage for the startButton as a GameObject
     /// </summary>
     [SerializeField]
@@ -78,10 +72,6 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
-        // since the shop manager is created at the beginning of the game, this will immediately fire.
-        // if we choose to create the manager later into the game's lifecycle, this will need to be moved.
-        shopText.enabled = false;
     }
 
     // Update is called once per frame
@@ -111,13 +101,12 @@ public class ShopManager : MonoBehaviour
 
 
 
-    public void StartShop()
-    {
-        shopText.enabled = true;
+    //public void StartShop()
+    //{
 
 
-        // Turn on cursor
-        // Switch to Shop UI
-        // Set Values
-    }
+    //    // Turn on cursor
+    //    // Switch to Shop UI
+    //    // Set Values
+    //}
 }
