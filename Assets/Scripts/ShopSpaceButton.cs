@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler
 {
@@ -43,8 +44,12 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
 
-            Debug.Log("Purchased Something For " + cost + "!");
-            Destroy(this.gameObject);
-            //Update Money Value
+        Debug.Log("Purchased Something For " + cost + "!");
+        Destroy(this.gameObject);
+
+        CurrentLayout.Instance.currBumper = itemForSale;
+        ShopManager.Instance.updateCurrLayoutUI();
+        //Update Money Value
     }
+
 }

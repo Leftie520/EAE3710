@@ -156,7 +156,7 @@ public class GameManager: MonoBehaviour
 
 
         timer = 30f;
-        timerText.text = "Time: 45";
+        timerText.text = "Time: 30";
         scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
         currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
         gameOverText.text = "GAME OVER";
