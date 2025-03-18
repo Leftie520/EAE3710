@@ -1025,6 +1025,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb79c119e77ed814e81b37cbaa8f80be, type: 3}
+--- !u!1 &485490962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485490964}
+  - component: {fileID: 485490963}
+  m_Layer: 0
+  m_Name: PrefabDB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &485490963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485490962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e661cad1b18181468d8a93abd4b9dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bumpersAsGOs:
+  - {fileID: 1038921460581550662, guid: 141836c26b4556f4096aed0c5c51a899, type: 3}
+  - {fileID: 5415112981143678836, guid: 5eec2f25f64f47b4f960212fd3b4667b, type: 3}
+--- !u!4 &485490964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485490962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.792521, y: -0.48849192, z: 0.6274373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3586,20 +3633,10 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638098087}
   m_CullTransparentMesh: 1
---- !u!212 &1663566890 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8840993919449210983, guid: c9e4742a41ecd074faf2057f9d714a44, type: 3}
-  m_PrefabInstance: {fileID: 454229910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1695623666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1841268254020054855, guid: eb79c119e77ed814e81b37cbaa8f80be, type: 3}
   m_PrefabInstance: {fileID: 467284337}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1730067713 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8840993919449210983, guid: c9e4742a41ecd074faf2057f9d714a44, type: 3}
-  m_PrefabInstance: {fileID: 416858866}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1741944360
 GameObject:
@@ -3956,7 +3993,6 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2113478553}
   - {fileID: 2344300246516983859}
   - {fileID: 454229911}
   - {fileID: 1203054259}
@@ -3991,11 +4027,11 @@ Transform:
   m_GameObject: {fileID: 2113478552}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.416859, y: 2.7055368, z: -0.19541824}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -19.238201, y: -0.52612436, z: -0.093435064}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2094104172}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2113478554
 MonoBehaviour:
@@ -4011,12 +4047,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 789198884}
   rerollButton: {fileID: 602443144}
-  shopSpace1: {fileID: 2344300246516983858}
-  shopSpace2: {fileID: 1663566890}
-  shopSpace3: {fileID: 1730067713}
-  lock1: {fileID: 0}
-  lock2: {fileID: 0}
-  lock3: {fileID: 0}
+  currentBumper: {fileID: 0}
+  currentSpinner: {fileID: 0}
+  currentFlipper: {fileID: 0}
+  currentBall: {fileID: 0}
 --- !u!1001 &2344300246516983857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4086,11 +4120,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9e4742a41ecd074faf2057f9d714a44, type: 3}
---- !u!212 &2344300246516983858 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8840993919449210983, guid: c9e4742a41ecd074faf2057f9d714a44, type: 3}
-  m_PrefabInstance: {fileID: 2344300246516983857}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2344300246516983859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6663539142370172629, guid: c9e4742a41ecd074faf2057f9d714a44, type: 3}
@@ -4307,6 +4336,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 979711176}
+  - {fileID: 2113478553}
+  - {fileID: 485490964}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 7122452397014447479}

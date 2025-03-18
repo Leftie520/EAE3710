@@ -7,7 +7,7 @@ public class Pinball : MonoBehaviour
     [SerializeField]
     Rigidbody2D rb;
 
-    public string prefabPath = "Prefabs/Pinball";
+    public string prefabPath = "Prefabs/Balls/Pinball";
     
     // Start is called before the first frame update
     // A Virus has been detected

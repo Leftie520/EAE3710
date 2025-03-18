@@ -6,21 +6,45 @@ using System;
 public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler
 {
 
-    public Sprite unusedSprite;
+    public GameObject itemForSale;
 
     public int cost;
 
 
-    public ShopSpaceButton(int cost)
+    public void Start()
     {
-        this.cost = cost;
+        cost = 0;
+
+        // generating random item for this button
+        itemForSale = generateItem();
+        
+        SpriteRenderer sprt = GetComponent<SpriteRenderer>();
+
+        
+        sprt.sprite = itemForSale.GetComponent<SpriteRenderer>().sprite;
+        sprt.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
+        sprt.color = Color.white;
+    }
+
+    private GameObject generateItem()
+    {
+        // note that for now we are specifically choosing bumpers because we don't have any items yet :`(
+        int index = UnityEngine.Random.Range(0, PrefabDB.Instance.bumperTable.Count);
+
+        // accessing a randomly generated bumper from the enum
+        PrefabDB.Bumpers bumper = (PrefabDB.Bumpers)index;
+
+        // converting the enum to a GO and returning it
+        return PrefabDB.Instance.bumperTable[bumper];
+
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
 
             Debug.Log("Purchased Something For " + cost + "!");
-            this.GetComponent<SpriteRenderer>().sprite = unusedSprite;
+            Destroy(this.gameObject);
             //Update Money Value
     }
 }

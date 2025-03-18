@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
@@ -22,63 +23,49 @@ public class ShopManager : MonoBehaviour
     public SpriteRenderer rerollButton;
 
     /// <summary>
-    /// storage for the first item button as a GameObject
+    /// the spriteRenderer showing the currently equipped bumper prefab.
     /// </summary>
     [SerializeField]
-    public SpriteRenderer shopSpace1;
+    public SpriteRenderer currentBumper;
 
     /// <summary>
-    /// storage for the second item button as a GameObject
+    /// the spriteRenderer showing the currently equipped spinner prefab.
     /// </summary>
     [SerializeField]
-    public SpriteRenderer shopSpace2;
+    public SpriteRenderer currentSpinner;
 
     /// <summary>
-    /// storage for the third item button as a GameObject
+    /// the spriteRenderer showing the currently equipped flipper prefab.
     /// </summary>
     [SerializeField]
-    public SpriteRenderer shopSpace3;
+    public SpriteRenderer currentFlipper;
 
     /// <summary>
-    /// Jake what do these do? :|
-    /// 
-    /// Like if we're replacing each button with a 'lock button', then shouldn't we just override the current button space?
-    /// If so, why do we need these?!
+    /// the spriteRenderer showing the currently equipped ball prefab.
     /// </summary>
     [SerializeField]
-    public SpriteRenderer lock1;
+    public SpriteRenderer currentBall;
 
-    /// <summary>
-    /// read above
-    /// </summary>
-    [SerializeField]
-    public SpriteRenderer lock2;
-
-    /// <summary>
-    /// read slightly further above
-    /// </summary>
-    [SerializeField]
-    public SpriteRenderer lock3;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     /// <summary>
     /// called when the manager is first created
     /// </summary>
     private void Awake()
     {
-        instance = this;
+        DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     /// <summary>
     /// Because the ShopManager is a singleton, this accesses the single gameManager instance.
@@ -86,13 +73,12 @@ public class ShopManager : MonoBehaviour
     public static ShopManager Instance
     {
 
-        // accessing the game manager, creating one in the process if necessary.
         get
         {
             
             if (instance == null)
             {
-                Debug.Log("shit");
+                Debug.Log("ShopManager DNE");
             }
 
             return instance;
@@ -101,12 +87,20 @@ public class ShopManager : MonoBehaviour
 
 
 
-    //public void StartShop()
-    //{
+    public async void StartShop()
+    {     
+        // it works but I hate it
+        await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
 
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
+            newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f*(i-1), 2f, 0), new Quaternion());
+        
+        
+        }
 
-    //    // Turn on cursor
-    //    // Switch to Shop UI
-    //    // Set Values
-    //}
+        // Turn on cursor
+        // Set Values
+    }
 }

@@ -133,7 +133,7 @@ public class GameManager: MonoBehaviour
             //Debug.Log("Attempting to access GM");
             if (instance == null)
             {
-                Debug.Log("shit");
+                Debug.Log("GameManager DNE");
             }
 
             return instance;
@@ -142,7 +142,19 @@ public class GameManager: MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
         timer = 30f;
         timerText.text = "Time: 45";
         scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
@@ -289,7 +301,7 @@ public class GameManager: MonoBehaviour
 
         //starting the shop
         Debug.Log("attempting to load shop");
-        SceneManager.LoadScene("ShopScene", LoadSceneMode.Single);
+        ShopManager.Instance.StartShop();
     }
 
 }
