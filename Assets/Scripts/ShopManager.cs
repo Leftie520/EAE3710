@@ -47,7 +47,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     public SpriteRenderer currentBall;
 
-
     /// <summary>
     /// called when the manager is first created
     /// </summary>
@@ -121,5 +120,15 @@ public class ShopManager : MonoBehaviour
     public void updateCurrLayoutUI()
     {
         currentBumper.sprite = CurrentLayout.Instance.currBumper.GetComponent<SpriteRenderer>().sprite;
+    }
+
+    /// <summary>
+    ///     HeadToGame has the player resume playing pinball, by going onto the next level.
+    /// </summary>
+    public IEnumerator headToGame()
+    {
+        Debug.Log("attempting to load game");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Single);
+        yield return new WaitUntil(() => asyncLoad.isDone);
     }
 }
