@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
@@ -14,7 +15,11 @@ public class GameManager: MonoBehaviour
     /// <summary>
     /// private storage for the Instance property.
     /// </summary>
-    private static GameManager instance;
+    public static GameManager instance;
+
+    /// <summary>
+    /// Private storage for the shop instance
+    /// </summary>
 
     /// <summary>
     /// A list of pinball objects storing the list the player currently has access to (similar to a joker lineup from Balatro.)
@@ -140,12 +145,12 @@ public class GameManager: MonoBehaviour
         }
     }
 
-    private void Awake()
+    void Awake()
     {
-        DontDestroyOnLoad(this);
 
         if (instance == null)
         {
+            DontDestroyOnLoad(this);
             instance = this;
         }
         else
@@ -161,6 +166,7 @@ public class GameManager: MonoBehaviour
         currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
         gameOverText.text = "GAME OVER";
         gameOverText.enabled = false;
+        //shopInstance = ShopManager.Instance;
     }
 
 
@@ -225,7 +231,8 @@ public class GameManager: MonoBehaviour
     {
         if (score >= levelScoreTargets[currentLevel])
         {
-            prepareForLevelUp();
+            StartCoroutine(headToShop());
+            //prepareForLevelUp();
             return;
         }
 
@@ -274,6 +281,13 @@ public class GameManager: MonoBehaviour
         gameOverText.enabled = true;
     }
 
+    private IEnumerator headToShop()
+    {
+        Debug.Log("attempting to load shop");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
+        yield return new WaitUntil(() => asyncLoad.isDone);
+    }
+
     private void prepareForLevelUp()
     {
         Debug.Log("levelling up");
@@ -282,6 +296,9 @@ public class GameManager: MonoBehaviour
         {
             endGame();
         }
+
+        //starting the shop
+        Debug.Log("attempting to load shop");
 
         // reseting a bunch of values for when the next level starts
         currentLevel++;
@@ -294,14 +311,10 @@ public class GameManager: MonoBehaviour
         scoreText.text = "Current Score: " + score;
 
         // making the game-based information invisible since it's not needed in the shop
-        timerText.enabled = false;
-        currentLevelText.enabled = false;
-        scoreText.enabled = false;
-        scoreTargetText.enabled = false;
-
-        //starting the shop
-        Debug.Log("attempting to load shop");
-        ShopManager.Instance.StartShop();
+        //timerText.enabled = false;
+        //currentLevelText.enabled = false;
+        //scoreText.enabled = false;
+        //scoreTargetText.enabled = false;
     }
 
 }

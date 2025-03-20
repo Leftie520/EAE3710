@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ public class ShopManager : MonoBehaviour
     /// <summary>
     /// private storage for the Instance property.
     /// </summary>
-    private static ShopManager instance;
+    public static ShopManager instance;
 
     /// <summary>
     /// storage for the startButton as a GameObject
@@ -52,17 +53,20 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        DontDestroyOnLoad(this);
 
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this);
+
         }
         else
         {
             Destroy(gameObject);
             return;
         }
+
+        StartShop();
 
     }
 
@@ -87,18 +91,31 @@ public class ShopManager : MonoBehaviour
 
 
 
-    public async void StartShop()
-    {     
+    public void StartShop()
+    {
         // it works but I hate it
-        await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
+        //await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
+        //StartCoroutine(LoadShopScene());
+
 
         for (int i = 0; i < 3; i++)
         {
             GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
-            newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f*(i-1), 2f, 0), new Quaternion());
-        
+            newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
         }
 
+    }
+
+    private IEnumerator LoadShopScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
+        yield return new WaitUntil(() => asyncLoad.isDone);
+
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
+            newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), Quaternion.identity);
+        }
     }
 
     public void updateCurrLayoutUI()
