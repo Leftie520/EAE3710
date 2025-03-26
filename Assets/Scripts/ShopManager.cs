@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -163,26 +164,34 @@ public class ShopManager : MonoBehaviour
                     table = obj;
             }
 
+            List<Transform> newBumpersPos = new List<Transform>();
+
             // replacing every old bumper with an instance of the currently selected bumper.
             foreach (Transform child in table.transform)
             {
                 GameObject obj = child.gameObject;
                 if (obj.GetComponent<Bumper>() != null)
                 {
-                    GameObject newBumper = Instantiate(CurrentLayout.Instance.currBumper);
                     
                     Transform oldTransform = obj.transform;
                     Destroy(obj);
 
-                    newBumper.transform.position = oldTransform.position;
-                    newBumper.transform.localScale = oldTransform.localScale * 0.65f * 0.65f;
+                    newBumpersPos.Add(oldTransform);
+                    
                 }
                     
             }
 
-            
+            foreach (Transform transform in newBumpersPos)
+            {
+                GameObject obj = Instantiate(CurrentLayout.Instance.currBumper, table.transform);
+                obj.transform.localPosition = transform.localPosition;
+                obj.transform.localScale = transform.localScale;
+            }
 
-            
+
+
+
         }
         GameManager.instance.SpawnBall();
 
