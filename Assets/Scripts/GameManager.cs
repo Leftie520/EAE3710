@@ -130,8 +130,6 @@ public class GameManager: MonoBehaviour
         levelScoreTargets.Add(15000);
         levelScoreTargets.Add(20000);
         levelScoreTargets.Add(30000);
-
-        StaticData.currentLevel = 0;
     }
 
     /// <summary>
@@ -271,8 +269,10 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public void SpawnBall()
     {
-        Debug.Log("Current Score: " + StaticData.score);
-        Debug.Log("Level Score Target: " + levelScoreTargets[StaticData.currentLevel]);
+        //Debug.Log("Current Score: " + StaticData.score);
+        //Debug.Log("Level Score Target: " + levelScoreTargets[StaticData.currentLevel]);
+        Debug.Log("Next Level: " + levelScoreTargets[StaticData.currentLevel].ToString());
+        Debug.Log("Current Level: " + StaticData.currentLevel);
 
         if (StaticData.score >= levelScoreTargets[StaticData.currentLevel])
         {

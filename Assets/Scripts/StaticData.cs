@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StaticData : MonoBehaviour
 {
-    public static int currentLevel;
+    public static int currentLevel = 0;
     public static int money;
     public static int score;
     public static int scoreToBeat;
