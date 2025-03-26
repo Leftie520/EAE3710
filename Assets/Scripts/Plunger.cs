@@ -10,12 +10,15 @@ public class Plunger : MonoBehaviour
     private float topHeight;
     private float lowHeight;
 
+    private float power;
+
 
     // Start is called before the first frame update
     void Start()
     {
         topHeight = this.transform.position.y;
         lowHeight = topHeight - 1;
+        power = 45;
 
     }
 
@@ -28,6 +31,7 @@ public class Plunger : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             deltaY = -10 * Time.deltaTime;
+            power = UnityEngine.Random.Range(35, 45);
         }
         else if (rb.position.y != topHeight)
         {
