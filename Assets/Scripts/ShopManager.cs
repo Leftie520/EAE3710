@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,13 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     public static ShopManager instance;
 
+    /// <summary>
+    ///     Displays the next level the user would be going to
+    /// </summary>
+    public int currentLevel;
+
+    [SerializeField]
+    public TMP_Text nextLevelText;
     /// <summary>
     /// storage for the startButton as a GameObject
     /// </summary>
@@ -57,7 +65,15 @@ public class ShopManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
-
+            //AudioListener[] listeners = UnityEngine.Object.FindObjectsOfType<AudioListener>();
+            //if (listeners.Length > 1)
+            //{
+            //    Debug.LogWarning("Multiple AudioListeners found. Removing extras...");
+            //    for (int i = 1; i < listeners.Length; i++)
+            //    {
+            //        Destroy(listeners[i]); // Keep the first one, remove others
+            //    }
+            //}
         }
         else
         {
@@ -96,6 +112,8 @@ public class ShopManager : MonoBehaviour
         //await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
         //StartCoroutine(LoadShopScene());
 
+        currentLevel = StaticData.currentLevel;
+        nextLevelText.text = "Next Level: " + currentLevel.ToString();
 
         for (int i = 0; i < 3; i++)
         {
@@ -125,10 +143,24 @@ public class ShopManager : MonoBehaviour
     /// <summary>
     ///     HeadToGame has the player resume playing pinball, by going onto the next level.
     /// </summary>
-    public IEnumerator headToGame()
+    public void headToGame()
     {
         Debug.Log("attempting to load game");
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Single);
-        yield return new WaitUntil(() => asyncLoad.isDone);
+        //GameManager.instance.currentlyAtShop = false;
+        Scene gameScene = SceneManager.GetSceneByName("GameScene");
+        if (gameScene.isLoaded)
+        {
+            foreach (GameObject obj in gameScene.GetRootGameObjects())
+            {
+                obj.SetActive(true);
+            }
+        }
+        GameManager.instance.SpawnBall();
+
+        SceneManager.UnloadSceneAsync("ShopScene");
+        //SceneManager.LoadScene("GameScene");
+        //yield return new WaitUntil(() => asyncLoad.isDone);
+        //AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("ShopScene");
+        //yield return new WaitUntil(() => asyncLoad.isDone);
     }
 }

@@ -41,6 +41,7 @@ public class Bumper : MonoBehaviour
 
     protected virtual void Score(int score)
     {
+        Debug.Log("Bumper Add Score");
         GameManager.Instance.addScore(score);
     }
 

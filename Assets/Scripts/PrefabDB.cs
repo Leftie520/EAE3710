@@ -28,7 +28,7 @@ public class PrefabDB : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("DB created");
+        //Debug.Log("DB created");
 
         DontDestroyOnLoad(this);
 

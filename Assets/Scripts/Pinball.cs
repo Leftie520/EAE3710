@@ -21,6 +21,7 @@ public class Pinball : MonoBehaviour
     {
         if (rb.transform.position.y < -8)
         {
+            //Debug.Log("Pinball update");
             GameManager.Instance.SpawnBall();
             Debug.Log("Ball dying");
             Destroy(this.gameObject);

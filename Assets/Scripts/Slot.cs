@@ -30,6 +30,7 @@ public class Slot : MonoBehaviour
 
     protected virtual void Score(int score)
     {
+        //Debug.Log("Slot Add Score");
         GameManager.Instance.addScore(score);
     }
 }

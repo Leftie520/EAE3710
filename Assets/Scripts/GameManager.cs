@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static GameManager;
@@ -34,7 +35,7 @@ public class GameManager: MonoBehaviour
     /// <summary>
     /// The current level the player is on
     /// </summary>
-    private int currentLevel;
+    //public int currentLevel;
 
     /// <summary>
     /// the index of the pinball that will be played next from the lineup (what is 'on deck')
@@ -44,7 +45,7 @@ public class GameManager: MonoBehaviour
     /// <summary>
     /// stores the current score; will be reset to zero at the start/end of each round.
     /// </summary>
-    private int score;
+    //private int score;
 
     /// <summary>
     /// stores how much time is remaining for that ball
@@ -92,18 +93,24 @@ public class GameManager: MonoBehaviour
     [SerializeField]
     public TMP_Text gameOverText;
 
+    /// <summary>
+    ///     Checks to see if the player is currently at the shop. This would prevent the rest of the code running.
+    /// </summary>
+    public Boolean currentlyAtShop;
+
 
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
     /// because the game manager will be created before the objects
     /// </summary>
-    private GameManager()
+    public GameManager()
     {
+        //Debug.Log("Game Manager Constructor is Ran");
         timer = 45f;
         //timerText.text = "Time: 45";
         ballInField = false;
 
-        score = 0;
+        StaticData.score = 0;
         ballLineup = new List<Pinball>();
 
         // creating the default lineup of three plain pinballs.
@@ -123,7 +130,7 @@ public class GameManager: MonoBehaviour
         levelScoreTargets.Add(20000);
         levelScoreTargets.Add(30000);
 
-        currentLevel = 0;
+        StaticData.currentLevel = 0;
     }
 
     /// <summary>
@@ -131,10 +138,10 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public static GameManager Instance
     {
-
         // accessing the game manager, creating one in the process if necessary.
         get
         {
+            //Debug.Log("Instance is Ran");
             //Debug.Log("Attempting to access GM");
             if (instance == null)
             {
@@ -147,11 +154,24 @@ public class GameManager: MonoBehaviour
 
     void Awake()
     {
+        //Debug.Log("Awake Method Is Ran");
 
         if (instance == null)
         {
             DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(blocker);
             instance = this;
+
+            //Ensuring Camera is properly loaded
+            Camera camera = Camera.main;
+            if (camera != null)
+            {
+                DontDestroyOnLoad(camera.gameObject);
+            }
+            else
+            {
+                Debug.Log("Main Camera Not Found");
+            }
         }
         else
         {
@@ -159,13 +179,33 @@ public class GameManager: MonoBehaviour
             return;
         }
 
+        Camera[] cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
+        foreach (Camera cam in cameras)
+        {
+            AudioListener listener = cam.GetComponent<AudioListener>();
+            if (listener != null && cam != Camera.main)
+            {
+                listener.enabled = false;
+            }
+        }
+
+        // Find all EventSystem objects in the scene
+        EventSystem[] eventSystems = FindObjectsByType<EventSystem>(FindObjectsSortMode.None);
+
+        // If there are more than one EventSystems, disable the extra ones
+        if (eventSystems.Length > 1)
+        {
+            for (int i = 1; i < eventSystems.Length; i++) // Start from 1 to keep the first one active
+            {
+                eventSystems[i].gameObject.SetActive(false);
+            }
+        }
 
         timer = 30f;
         timerText.text = "Time: 30";
-        scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
-        currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
-        gameOverText.text = "GAME OVER";
-        gameOverText.enabled = false;
+        scoreTargetText.text = "Score to Beat: " + levelScoreTargets[StaticData.currentLevel].ToString();
+        currentLevelText.text = "Level: " + (StaticData.currentLevel + 1).ToString();
+        gameOverText.text = "";
         //shopInstance = ShopManager.Instance;
     }
 
@@ -187,11 +227,10 @@ public class GameManager: MonoBehaviour
             }
         }
 
-        if(timer <= 0)
+        if (timer <= 0)
         {
             setFlippersEnabled(false);
         }
-
     }
 
 
@@ -201,11 +240,12 @@ public class GameManager: MonoBehaviour
     /// <param name="additive"> the score being added to the total </param>
     public void addScore(int additive)
     {
-        this.score += additive;
-        Debug.Log(score  + " is the new score.");
+        //Debug.Log("Add Score Method is ran");
+        StaticData.score += additive;
+        Debug.Log(StaticData.score  + " is the new score.");
 
         // updating the score text field
-        scoreText.text = "Current Score: " + score;
+        scoreText.text = "Current Score: " + StaticData.score;
         
     }
 
@@ -214,6 +254,7 @@ public class GameManager: MonoBehaviour
     /// </summary>
     private void setFlippersEnabled(bool enabled)
     {
+        //Debug.Log("Set Flippers Enabled Method is ran");
         // in theory this is accessing all flippers
         Flipper[] flippers = GameObject.FindObjectsByType<Flipper>(new FindObjectsSortMode());
 
@@ -229,12 +270,28 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public void SpawnBall()
     {
-        if (score >= levelScoreTargets[currentLevel])
+        Debug.Log("Current Score: " + StaticData.score);
+        Debug.Log("Level Score Target: " + levelScoreTargets[StaticData.currentLevel]);
+
+        if (StaticData.score >= levelScoreTargets[StaticData.currentLevel])
         {
-            StartCoroutine(headToShop());
-            //prepareForLevelUp();
+            Debug.Log("Score reached! Heading to shop.");
+            headToShop();
             return;
         }
+        else
+        {
+            Debug.Log("Score not reached yet. Keep playing.");
+        }
+
+        //Debug.Log("Spawn Ball Method is ran");
+        //if (StaticData.score >= levelScoreTargets[StaticData.currentLevel])
+        //{
+        //    //StartCoroutine(headToShop());
+        //    headToShop();
+        //    //prepareForLevelUp();
+        //    return;
+        //}
 
         Pinball ball;
             
@@ -249,13 +306,37 @@ public class GameManager: MonoBehaviour
             return;
         }
 
+        //if(blocker == null)
+        //{
+        //    Debug.Log("Blocker does not exist");
+        //}
+
         GameObject ballAsGO = (GameObject)Resources.Load(ball.prefabPath, typeof(GameObject));
         ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(7.82f, -4f, 0), new Quaternion());
 
+        Camera camera = Camera.main; // This ensures you're using the main camera
+        if (camera != null)
+        {
+            CameraMovementManager cmm = camera.GetComponent<CameraMovementManager>();
+            if (cmm != null)
+            {
+                cmm.ball = ballAsGO.GetComponent<Rigidbody2D>();
+            }
+            else
+            {
+                Debug.LogError("CameraMovementManager not found on the camera.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Main camera not found.");
+        }
+
         // syncing the ball up with the cameraMovementManager 
-        Camera camera = GameObject.FindAnyObjectByType<Camera>();
-        CameraMovementManager cmm = camera.GetComponent<CameraMovementManager>();
-        cmm.ball = ballAsGO.GetComponent<Rigidbody2D>();
+        //Camera camera = GameObject.FindAnyObjectByType<Camera>();
+        //CameraMovementManager cmm = camera.GetComponent<CameraMovementManager>();
+        //cmm.ball = ballAsGO.GetComponent<Rigidbody2D>();
+
 
         ballLineupIndex++;
 
@@ -277,39 +358,48 @@ public class GameManager: MonoBehaviour
     /// </summary>
     private void endGame()
     {
+        //Debug.Log("End Game method is ran");
         // Insert code to state GAME OVER on Screen
-        gameOverText.enabled = true;
+        gameOverText.text = "GAME OVER";
     }
 
-    private IEnumerator headToShop()
+    private void headToShop()
     {
-        Debug.Log("attempting to load shop");
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
-        yield return new WaitUntil(() => asyncLoad.isDone);
+        //Debug.Log("attempting to load shop");
+        prepareForLevelUp();
+
+        Scene gameScene = SceneManager.GetSceneByName("GameScene");
+        if (gameScene.isLoaded)
+        {
+            foreach (GameObject obj in gameScene.GetRootGameObjects())
+            {
+                if (obj != this.gameObject) // Don't disable GameManager
+                    obj.SetActive(false);
+            }
+        }
+
+        SceneManager.LoadScene("ShopScene", LoadSceneMode.Additive);
+        //yield return new WaitUntil(() => asyncLoad.isDone);
     }
 
     private void prepareForLevelUp()
     {
-        Debug.Log("levelling up");
+        //Debug.Log("levelling up");
 
-        if (score < levelScoreTargets[currentLevel])
+        if (StaticData.score < levelScoreTargets[StaticData.currentLevel])
         {
             endGame();
         }
 
-        //starting the shop
-        Debug.Log("attempting to load shop");
-
         // reseting a bunch of values for when the next level starts
-        currentLevel++;
-        score = 0;
+        StaticData.currentLevel++;
+        StaticData.score = 0;
         timer = 30f;
         ballLineupIndex = 0;
         timerText.text = "Time: " + timer.ToString("0.0");
-        scoreTargetText.text = "Score to Beat: " + levelScoreTargets[currentLevel].ToString();
-        currentLevelText.text = "Level: " + (currentLevel + 1).ToString();
-        scoreText.text = "Current Score: " + score;
-
+        scoreTargetText.text = "Score to Beat: " + levelScoreTargets[StaticData.currentLevel].ToString();
+        currentLevelText.text = "Level: " + (StaticData.currentLevel + 1).ToString();
+        scoreText.text = "Current Score: " + StaticData.score;
         // making the game-based information invisible since it's not needed in the shop
         //timerText.enabled = false;
         //currentLevelText.enabled = false;
