@@ -50,6 +50,7 @@ public class PrefabDB : MonoBehaviour
         for (int i = 0; i < bumpersAsGOs.Length; i++)
         {
             bumperTable.Add((Bumpers)i, bumpersAsGOs[i]);
+            Debug.Log("Bumper: " + bumpersAsGOs[i].ToString());
         }
 
     }

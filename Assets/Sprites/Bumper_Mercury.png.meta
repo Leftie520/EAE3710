@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bumper_Mercury_0: -8748089435530209479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -657,6 +657,7 @@ MonoBehaviour:
   bumpersAsGOs:
   - {fileID: 1038921460581550662, guid: 141836c26b4556f4096aed0c5c51a899, type: 3}
   - {fileID: 5415112981143678836, guid: 5eec2f25f64f47b4f960212fd3b4667b, type: 3}
+  - {fileID: 2387263151302786328, guid: 169daacb9f2ea494688bf89dcc2fcc13, type: 3}
 --- !u!4 &485490964
 Transform:
   m_ObjectHideFlags: 0
