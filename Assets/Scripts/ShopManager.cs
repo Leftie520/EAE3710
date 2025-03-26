@@ -199,7 +199,7 @@ public class ShopManager : MonoBehaviour
             {
                 GameObject obj = Instantiate(CurrentLayout.Instance.currBumper, table.transform);
                 obj.transform.localPosition = transform.localPosition;
-                obj.transform.localScale = transform.localScale;
+                //obj.transform.localScale = transform.localScale;
             }
 
 
