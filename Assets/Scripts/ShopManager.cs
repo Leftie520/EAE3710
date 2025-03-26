@@ -100,10 +100,10 @@ public class ShopManager : MonoBehaviour
 
         get
         {
-            
+
             if (instance == null)
             {
-                
+
 
                 Debug.Log("ShopManager DNE");
             }
@@ -185,14 +185,14 @@ public class ShopManager : MonoBehaviour
                 GameObject obj = child.gameObject;
                 if (obj.GetComponent<Bumper>() != null)
                 {
-                    
+
                     Transform oldTransform = obj.transform;
                     Destroy(obj);
 
                     newBumpersPos.Add(oldTransform);
-                    
+
                 }
-                    
+
             }
 
             foreach (Transform transform in newBumpersPos)
@@ -200,21 +200,24 @@ public class ShopManager : MonoBehaviour
                 GameObject obj = Instantiate(CurrentLayout.Instance.currBumper, table.transform);
                 obj.transform.localPosition = transform.localPosition;
 
-                if (CurrentLayout.Instance.currBumper != PrefabDB.Instance.bumperTable[PrefabDB.Bumpers.Basic] &&
-                    CurrentLayout.Instance.currBumper != PrefabDB.Instance.bumperTable[PrefabDB.Bumpers.Moon])
-                    obj.transform.localScale = transform.localScale * .65f;
+                obj.transform.localScale = transform.localScale * .65f;
+                if (CurrentLayout.Instance.currBumper == PrefabDB.Instance.bumperTable[PrefabDB.Bumpers.Moon])
+                {
+                    obj.transform.localScale = obj.transform.localScale /.65f;
+
+                }
+
+
+
+
             }
+            //GameManager.instance.SpawnBall();
 
-
-
-
+            SceneManager.UnloadSceneAsync("ShopScene");
+            //SceneManager.LoadScene("GameScene");
+            //yield return new WaitUntil(() => asyncLoad.isDone);
+            //AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("ShopScene");
+            //yield return new WaitUntil(() => asyncLoad.isDone);
         }
-        //GameManager.instance.SpawnBall();
-
-        SceneManager.UnloadSceneAsync("ShopScene");
-        //SceneManager.LoadScene("GameScene");
-        //yield return new WaitUntil(() => asyncLoad.isDone);
-        //AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync("ShopScene");
-        //yield return new WaitUntil(() => asyncLoad.isDone);
     }
 }
