@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -113,6 +114,7 @@ public class ShopManager : MonoBehaviour
         //StartCoroutine(LoadShopScene());
 
         currentLevel = StaticData.currentLevel;
+        Debug.Log("new level is in shop: " + currentLevel);
         nextLevelText.text = "Next Level: " + currentLevel.ToString();
 
         for (int i = 0; i < 3; i++)
@@ -138,6 +140,7 @@ public class ShopManager : MonoBehaviour
     public void updateCurrLayoutUI()
     {
         currentBumper.sprite = CurrentLayout.Instance.currBumper.GetComponent<SpriteRenderer>().sprite;
+        currentBumper.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
     }
 
     /// <summary>
@@ -150,10 +153,36 @@ public class ShopManager : MonoBehaviour
         Scene gameScene = SceneManager.GetSceneByName("GameScene");
         if (gameScene.isLoaded)
         {
+            GameObject table = null;
+
+            // turning on all text fields
             foreach (GameObject obj in gameScene.GetRootGameObjects())
             {
                 obj.SetActive(true);
+                if (obj.name.Equals("Table"))
+                    table = obj;
             }
+
+            // replacing every old bumper with an instance of the currently selected bumper.
+            foreach (Transform child in table.transform)
+            {
+                GameObject obj = child.gameObject;
+                if (obj.GetComponent<Bumper>() != null)
+                {
+                    GameObject newBumper = Instantiate(CurrentLayout.Instance.currBumper);
+                    
+                    Transform oldTransform = obj.transform;
+                    Destroy(obj);
+
+                    newBumper.transform.position = oldTransform.position;
+                    newBumper.transform.localScale = oldTransform.localScale * 0.65f * 0.65f;
+                }
+                    
+            }
+
+            
+
+            
         }
         GameManager.instance.SpawnBall();
 

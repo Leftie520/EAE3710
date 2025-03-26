@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -384,7 +385,7 @@ public class GameManager: MonoBehaviour
 
     private void prepareForLevelUp()
     {
-        //Debug.Log("levelling up");
+        Debug.Log("levelling up");
 
         if (StaticData.score < levelScoreTargets[StaticData.currentLevel])
         {
@@ -393,6 +394,7 @@ public class GameManager: MonoBehaviour
 
         // reseting a bunch of values for when the next level starts
         StaticData.currentLevel++;
+        Debug.Log("new level is " + StaticData.currentLevel);
         StaticData.score = 0;
         timer = 30f;
         ballLineupIndex = 0;
