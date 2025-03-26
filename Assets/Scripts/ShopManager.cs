@@ -12,7 +12,7 @@ public class ShopManager : MonoBehaviour
     /// <summary>
     /// private storage for the Instance property.
     /// </summary>
-    public static ShopManager instance;
+    private static ShopManager instance;
 
     /// <summary>
     ///     Displays the next level the user would be going to
@@ -57,16 +57,20 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     public SpriteRenderer currentBall;
 
+    private List<GameObject> gameObjectsOnSale;
+
     /// <summary>
     /// called when the manager is first created
     /// </summary>
     private void Awake()
     {
 
+
+
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
             //AudioListener[] listeners = UnityEngine.Object.FindObjectsOfType<AudioListener>();
             //if (listeners.Length > 1)
             //{
@@ -83,6 +87,7 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
+        gameObjectsOnSale = new List<GameObject>();
         StartShop();
 
     }
@@ -99,6 +104,8 @@ public class ShopManager : MonoBehaviour
             
             if (instance == null)
             {
+                
+
                 Debug.Log("ShopManager DNE");
             }
 
@@ -110,6 +117,13 @@ public class ShopManager : MonoBehaviour
 
     public void StartShop()
     {
+
+        foreach (GameObject obj in gameObjectsOnSale)
+        {
+            Destroy(obj);
+            gameObjectsOnSale.Remove(obj);
+        }
+
         // it works but I hate it
         //await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
         //StartCoroutine(LoadShopScene());
@@ -122,6 +136,7 @@ public class ShopManager : MonoBehaviour
         {
             GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
+            gameObjectsOnSale.Add(newShopItem);
         }
 
     }
@@ -193,7 +208,7 @@ public class ShopManager : MonoBehaviour
 
 
         }
-        GameManager.instance.SpawnBall();
+        //GameManager.instance.SpawnBall();
 
         SceneManager.UnloadSceneAsync("ShopScene");
         //SceneManager.LoadScene("GameScene");

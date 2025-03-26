@@ -7,7 +7,7 @@ public class NextLevelButton : MonoBehaviour, IPointerDownHandler
     {
         Debug.Log("Attempting to resume to game");
         //StartCoroutine(ShopManager.instance.headToGame());
-        ShopManager.instance.headToGame();
+        ShopManager.Instance.headToGame();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

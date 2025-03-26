@@ -31,7 +31,7 @@ public class Plunger : MonoBehaviour
         }
         else if (rb.position.y != topHeight)
         {
-            deltaY = 35 * Time.deltaTime;
+            deltaY = 40 * Time.deltaTime;
         }
 
         float newY = Mathf.Clamp(rb.position.y + deltaY, lowHeight, topHeight);

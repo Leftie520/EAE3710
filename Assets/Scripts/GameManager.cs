@@ -380,7 +380,9 @@ public class GameManager: MonoBehaviour
         }
 
         SceneManager.LoadScene("ShopScene", LoadSceneMode.Additive);
-        //yield return new WaitUntil(() => asyncLoad.isDone);
+
+        Debug.Log("Starting shop");
+        ShopManager.Instance.StartShop();
     }
 
     private void prepareForLevelUp()
