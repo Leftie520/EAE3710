@@ -7,6 +7,7 @@ public class Bumper : MonoBehaviour
 {
     // Start is called before the first frame update
     public int score;
+    public int veloctiy;
     void Start()
     {
         
@@ -29,7 +30,7 @@ public class Bumper : MonoBehaviour
         // finding the angle of the collision and normalizing the new ball velocity
         Vector3 newVel = new Vector3(rb.position.x, rb.position.y) - transform.position;
         newVel.Normalize();
-        newVel *= 16;
+        newVel *= veloctiy;
 
         // actually setting the new ball velocity
         rb.linearVelocity = newVel;

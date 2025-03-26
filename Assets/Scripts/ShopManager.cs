@@ -89,7 +89,6 @@ public class ShopManager : MonoBehaviour
 
         gameObjectsOnSale = new List<GameObject>();
         StartShop();
-
     }
 
 
@@ -138,7 +137,6 @@ public class ShopManager : MonoBehaviour
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
             gameObjectsOnSale.Add(newShopItem);
         }
-
     }
 
     private IEnumerator LoadShopScene()

@@ -17,7 +17,8 @@ public class PrefabDB : MonoBehaviour
     public enum Bumpers
     {
         Basic = 0,
-        Moon = 1
+        Moon = 1,
+        Mercury = 2
     }
 
 

@@ -411,7 +411,7 @@ public class GameManager: MonoBehaviour
         //scoreTargetText.enabled = false;
     }
 
-    public void calculateNextScoreToBeat()
+    private void calculateNextScoreToBeat()
     {
         int randomScoreIncrease = (int)(UnityEngine.Random.Range(0, StaticData.currentLevel) * (1 - 0.5) + 0.5);
         StaticData.scoreToBeat = StaticData.score + randomScoreIncrease;

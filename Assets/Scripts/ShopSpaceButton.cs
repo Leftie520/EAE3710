@@ -37,8 +37,6 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler
 
         // converting the enum to a GO and returning it
         return PrefabDB.Instance.bumperTable[bumper];
-
-
     }
 
     public void OnPointerDown(PointerEventData eventData)
