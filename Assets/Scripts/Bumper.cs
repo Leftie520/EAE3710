@@ -21,8 +21,9 @@ public class Bumper : MonoBehaviour
     
 
 
-    void OnCollisionEnter2D(Collision2D col)
+    protected virtual void OnCollisionEnter2D(Collision2D col)
     {
+        Debug.Log("base bumper collision");
         // getting the other collider (better be a goddamn ball :)
         GameObject obj = col.gameObject;
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();

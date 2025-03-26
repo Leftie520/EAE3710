@@ -18,7 +18,8 @@ public class PrefabDB : MonoBehaviour
     {
         Basic = 0,
         Moon = 1,
-        Mercury = 2
+        Mercury = 2,
+        Kepler = 3
     }
 
 
