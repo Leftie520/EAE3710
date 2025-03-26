@@ -200,7 +200,7 @@ public class ShopManager : MonoBehaviour
                 GameObject obj = Instantiate(CurrentLayout.Instance.currBumper, table.transform);
                 obj.transform.localPosition = transform.localPosition;
 
-                obj.transform.localScale = transform.localScale * .65f;
+                obj.transform.localScale = new Vector3(.65f, .65f, .65f);
                 if (CurrentLayout.Instance.currBumper == PrefabDB.Instance.bumperTable[PrefabDB.Bumpers.Moon])
                 {
                     obj.transform.localScale = obj.transform.localScale /.65f;

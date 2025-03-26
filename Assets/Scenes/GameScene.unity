@@ -303,11 +303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1236868309279037716, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
       value: 13
-=======
-      value: 13.1
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 1236868309279037716, guid: c14d82aedaabdde4a8e82ac3241dacab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -662,6 +658,7 @@ MonoBehaviour:
   - {fileID: 1038921460581550662, guid: 141836c26b4556f4096aed0c5c51a899, type: 3}
   - {fileID: 5415112981143678836, guid: 5eec2f25f64f47b4f960212fd3b4667b, type: 3}
   - {fileID: 2387263151302786328, guid: 169daacb9f2ea494688bf89dcc2fcc13, type: 3}
+  - {fileID: 2371379698675314730, guid: ab06972b6f46dfa47991585cc3eb130a, type: 3}
 --- !u!4 &485490964
 Transform:
   m_ObjectHideFlags: 0
@@ -1930,11 +1927,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1236868309279037716, guid: 7bd6a8c19aa4ebb4faa203a9206e4a95, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
       value: 2.7
-=======
-      value: 2.75
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 1236868309279037716, guid: 7bd6a8c19aa4ebb4faa203a9206e4a95, type: 3}
       propertyPath: m_LocalPosition.y
