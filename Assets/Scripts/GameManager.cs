@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -130,6 +129,11 @@ public class GameManager: MonoBehaviour
         levelScoreTargets.Add(15000);
         levelScoreTargets.Add(20000);
         levelScoreTargets.Add(30000);
+        levelScoreTargets.Add(60000);
+        levelScoreTargets.Add(120000);
+        levelScoreTargets.Add(240000);
+        levelScoreTargets.Add(480000);
+        levelScoreTargets.Add(840000);
     }
 
     /// <summary>
