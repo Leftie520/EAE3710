@@ -120,7 +120,7 @@ public class GameManager: MonoBehaviour
         }
 
         levelScoreTargets = new List<int>();
-        levelScoreTargets.Add(100);
+        levelScoreTargets.Add(1000);
         levelScoreTargets.Add(2500);
         levelScoreTargets.Add(4000);
         levelScoreTargets.Add(5500);
