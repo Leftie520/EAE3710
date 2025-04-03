@@ -17,7 +17,12 @@ public class KeplerBumper : Bumper
         Debug.Log(score);
         if (hp == 0) {
             Score(2000);
-            Destroy(gameObject);
+
+            // 'killing' the object without destroying it so it can be replaced next level
+            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<Renderer>().enabled = false;
+
+
         }
 
     }
