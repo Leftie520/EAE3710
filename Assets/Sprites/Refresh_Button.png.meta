@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 918dad6704da5424cbb0e9cc77de7fe3
+guid: 4f154d2ede0741b4f8657a94c22d1d26
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4053412009044637143
-    second: TriBumpers_0
-  - first:
-      213: 1371965373830621535
-    second: TriBumpers_1
+      213: -1167101388279859298
+    second: Refresh_Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TriBumpers_0
+      name: Refresh_Button_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 29
-        height: 62
+        x: 0
+        y: 0
+        width: 608
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92a8790f0436fb7c0800000000000000
-      internalID: -4053412009044637143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TriBumpers_1
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 4
-        width: 29
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f596f4f0d333a0310800000000000000
-      internalID: 1371965373830621535
+      spriteID: e97b6be887f9dcfe0800000000000000
+      internalID: -1167101388279859298
       vertices: []
       indices: 
       edges: []
@@ -172,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      TriBumpers_0: -4053412009044637143
-      TriBumpers_1: 1371965373830621535
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
