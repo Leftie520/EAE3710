@@ -659,6 +659,7 @@ MonoBehaviour:
   - {fileID: 5415112981143678836, guid: 5eec2f25f64f47b4f960212fd3b4667b, type: 3}
   - {fileID: 2387263151302786328, guid: 169daacb9f2ea494688bf89dcc2fcc13, type: 3}
   - {fileID: 2371379698675314730, guid: ab06972b6f46dfa47991585cc3eb130a, type: 3}
+  - {fileID: 1897968600278801600, guid: 32518d09ef3820f488e4340ae139cf4d, type: 3}
 --- !u!4 &485490964
 Transform:
   m_ObjectHideFlags: 0
@@ -3695,6 +3696,10 @@ PrefabInstance:
     - target: {fileID: 8139666083122808862, guid: 8eab56b3f37012e4b830eb06c7062345, type: 3}
       propertyPath: m_Name
       value: Pinball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139666083122808862, guid: 8eab56b3f37012e4b830eb06c7062345, type: 3}
+      propertyPath: m_TagString
+      value: mainPinball
       objectReference: {fileID: 0}
     - target: {fileID: 9091628374094977580, guid: 8eab56b3f37012e4b830eb06c7062345, type: 3}
       propertyPath: m_Material

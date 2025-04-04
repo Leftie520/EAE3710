@@ -98,6 +98,8 @@ public class GameManager: MonoBehaviour
     /// </summary>
     public Boolean currentlyAtShop;
 
+    public List<GameObject> GhostList;
+
 
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
@@ -277,6 +279,7 @@ public class GameManager: MonoBehaviour
         //Debug.Log("Level Score Target: " + levelScoreTargets[StaticData.currentLevel]);
         Debug.Log("Next Level: " + levelScoreTargets[StaticData.currentLevel].ToString());
         Debug.Log("Current Level: " + StaticData.currentLevel);
+        killAllGhostBalls();
 
         if (StaticData.score >= levelScoreTargets[StaticData.currentLevel])
         {
@@ -419,6 +422,15 @@ public class GameManager: MonoBehaviour
     {
         int randomScoreIncrease = (int)(UnityEngine.Random.Range(0, StaticData.currentLevel) * (1 - 0.5) + 0.5);
         StaticData.scoreToBeat = StaticData.score + randomScoreIncrease;
+    }
+
+    private void killAllGhostBalls()
+    {
+        for (int i = 0; i < GhostList.Count; i++)
+        {
+            Destroy(GhostList[i]);
+        }
+        GhostList.Clear();
     }
 
 }
