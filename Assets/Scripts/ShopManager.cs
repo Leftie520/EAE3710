@@ -131,12 +131,8 @@ public class ShopManager : MonoBehaviour
         Debug.Log("new level is in shop: " + currentLevel);
         nextLevelText.text = "Next Level: " + currentLevel.ToString();
 
-        for (int i = 0; i < 3; i++)
-        {
-            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
-            newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
-            gameObjectsOnSale.Add(newShopItem);
-        }
+        rollShop();
+        updateCurrLayoutUI();
     }
 
     private IEnumerator LoadShopScene()
@@ -148,6 +144,16 @@ public class ShopManager : MonoBehaviour
         {
             GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), Quaternion.identity);
+        }
+    }
+
+    public void rollShop()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
+            newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
+            gameObjectsOnSale.Add(newShopItem);
         }
     }
 
