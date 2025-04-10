@@ -148,12 +148,12 @@ public class ShopManager : MonoBehaviour
 
     public void rollShop()
     {
-        foreach (ShopSpaceButton obj in gameObjectsOnSale)
+        int saleCount = gameObjectsOnSale.Count;
+        for(int i = 0; i < saleCount; i++)
         {
-            Destroy(obj);
-            gameObjectsOnSale.Remove(obj);
+            Destroy(gameObjectsOnSale[0]);
+            gameObjectsOnSale.Remove(gameObjectsOnSale[0]);
         }
-
 
         for (int i = 0; i < 3; i++)
         {
