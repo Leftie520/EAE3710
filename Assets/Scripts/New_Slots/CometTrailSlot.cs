@@ -14,7 +14,7 @@ public class CometTrailSlot : Slot
         if (rb != null)
         {
             // Apply speed boost
-            rb.velocity *= speedMultiplier;
+            rb.linearVelocity *= speedMultiplier;
         }
 
         Score(score);

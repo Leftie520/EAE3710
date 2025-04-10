@@ -9,14 +9,14 @@ public class Moon : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Movement Settings")]
-    public float moveForce = 0.3f; // Lower value for gentle movement
+    public float moveForce = 0.3f; 
     public float drag = 3f;
     public float resetDelay = 1f;
-    public float maxSpeed = 1.2f; // Limit bumper movement speed
+    public float maxSpeed = 1.2f; 
 
     void Start()
     {
-        // Record the starting position of the bumper for later reset
+        
         startPos = transform.position;
 
         rb = GetComponent<Rigidbody2D>();
@@ -27,15 +27,15 @@ public class Moon : MonoBehaviour
 
         rb.gravityScale = 0f;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        rb.drag = drag;
+        rb.linearDamping = drag;
     }
 
     void Update()
     {
-        // Clamp speed so bumper doesn't slide too far
-        if (rb != null && rb.velocity.magnitude > maxSpeed)
+       
+        if (rb != null && rb.linearVelocity.magnitude > maxSpeed)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
     }
 
@@ -50,7 +50,7 @@ public class Moon : MonoBehaviour
             Vector3 newVel = new Vector3(ballRb.position.x, ballRb.position.y) - transform.position;
             newVel.Normalize();
             newVel *= 16;
-            ballRb.velocity = newVel;
+            ballRb.linearVelocity = newVel;
 
            
             Vector2 pushDir = (transform.position - obj.transform.position).normalized;
@@ -76,7 +76,7 @@ public class Moon : MonoBehaviour
     private IEnumerator ResetAfterDelay()
     {
         yield return new WaitForSeconds(resetDelay);
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         transform.position = startPos;
     }
