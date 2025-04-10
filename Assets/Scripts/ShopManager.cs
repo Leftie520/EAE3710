@@ -33,6 +33,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     public SpriteRenderer rerollButton;
 
+    [SerializeField]
+    public TMP_Text descriptionText;
+
     /// <summary>
     /// the spriteRenderer showing the currently equipped bumper prefab.
     /// </summary>
@@ -57,7 +60,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     public SpriteRenderer currentBall;
 
-    private List<GameObject> gameObjectsOnSale;
+    private List<ShopSpaceButton> gameObjectsOnSale;
 
     /// <summary>
     /// called when the manager is first created
@@ -87,7 +90,7 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        gameObjectsOnSale = new List<GameObject>();
+        gameObjectsOnSale = new List<ShopSpaceButton>();
         StartShop();
     }
 
@@ -117,11 +120,7 @@ public class ShopManager : MonoBehaviour
     public void StartShop()
     {
 
-        foreach (GameObject obj in gameObjectsOnSale)
-        {
-            Destroy(obj);
-            gameObjectsOnSale.Remove(obj);
-        }
+        
 
         // it works but I hate it
         //await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
@@ -149,11 +148,20 @@ public class ShopManager : MonoBehaviour
 
     public void rollShop()
     {
+        foreach (ShopSpaceButton obj in gameObjectsOnSale)
+        {
+            Destroy(obj);
+            gameObjectsOnSale.Remove(obj);
+        }
+
+
         for (int i = 0; i < 3; i++)
         {
-            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
+            ShopSpaceButton newShopItem = (ShopSpaceButton)Resources.Load("Prefabs/ShopSpace", typeof(ShopSpaceButton));
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
             gameObjectsOnSale.Add(newShopItem);
+
+            newShopItem.descriptionReference = descriptionText;
             
         }
     }

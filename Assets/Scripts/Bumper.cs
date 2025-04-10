@@ -8,6 +8,8 @@ public class Bumper : MonoBehaviour
     // Start is called before the first frame update
     public int score;
     public int veloctiy;
+
+    public string description = "";
     void Start()
     {
         
