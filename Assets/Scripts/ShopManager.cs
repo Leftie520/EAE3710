@@ -149,6 +149,13 @@ public class ShopManager : MonoBehaviour
 
     public void rollShop()
     {
+        int saleCount = gameObjectsOnSale.Count;
+        for(int i = 0; i < saleCount; i++)
+        {
+            Destroy(gameObjectsOnSale[0]);
+            gameObjectsOnSale.Remove(gameObjectsOnSale[0]);
+        }
+
         for (int i = 0; i < 3; i++)
         {
             GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
