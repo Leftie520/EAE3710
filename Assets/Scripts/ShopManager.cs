@@ -154,6 +154,7 @@ public class ShopManager : MonoBehaviour
             GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
             gameObjectsOnSale.Add(newShopItem);
+            
         }
     }
 

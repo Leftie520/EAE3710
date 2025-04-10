@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static GameManager;
 
 public class GameManager: MonoBehaviour
@@ -92,6 +93,9 @@ public class GameManager: MonoBehaviour
     /// </summary>
     [SerializeField]
     public TMP_Text gameOverText;
+
+    [SerializeField]
+    public GameObject progressBar;
 
     /// <summary>
     ///     Checks to see if the player is currently at the shop. This would prevent the rest of the code running.
@@ -240,7 +244,8 @@ public class GameManager: MonoBehaviour
     /// <summary>
     /// adds a value to the current score
     /// </summary>
-    /// <param name="additive"> the score being added to the total </param>
+    /// <param name="additive"> the score being added to the total
+    /// </param>
     public void addScore(int additive)
     {
         //Debug.Log("Add Score Method is ran");
@@ -249,7 +254,24 @@ public class GameManager: MonoBehaviour
 
         // updating the score text field
         scoreText.text = "Current Score: " + StaticData.score;
-        
+
+        // updating the scale and position of the progress bar to reflect how far along we are
+        // NOTE: at 0% completion: yPos = -1.35, yScale = 0
+        //       at 100% completion: yPos = 3.5, yScale = 9.5
+        //       at 100*t% completion: yPos = -1.35 + (9.5/2)t, yScale = 9.5t
+
+        float progress = StaticData.score / (float)levelScoreTargets[StaticData.currentLevel];
+        Debug.Log(progress);
+
+        progressBar.transform.localScale = new Vector3(3.5f, progress * 9.5f, 1f);
+        progressBar.transform.position = new Vector3(0f, -1.35f + 4.25f * progress, 0f);
+
+        if (progress > 1f)
+        {
+            progressBar.transform.localScale = new Vector3(3.5f, 11.25f, 1f);
+            progressBar.transform.position = new Vector3(0f, -1.35f, 0f);
+        }
+
     }
 
     /// <summary>

@@ -13,7 +13,7 @@ public class CloneBumper : Bumper
         base.OnCollisionEnter2D(col);
         score += 100;
         Debug.Log(score);
-        if()
+        //if()
 
     }
 }
