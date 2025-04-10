@@ -6,6 +6,7 @@ TagManager:
   tags:
   - mainPinball
   - ghostBall
+  - moblizeBumper
   layers:
   - Default
   - TransparentFX

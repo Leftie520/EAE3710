@@ -660,6 +660,7 @@ MonoBehaviour:
   - {fileID: 2387263151302786328, guid: 169daacb9f2ea494688bf89dcc2fcc13, type: 3}
   - {fileID: 2371379698675314730, guid: ab06972b6f46dfa47991585cc3eb130a, type: 3}
   - {fileID: 1897968600278801600, guid: 32518d09ef3820f488e4340ae139cf4d, type: 3}
+  - {fileID: 5605459114323068921, guid: 1dc79bfc5580c344fa5a11319dc3ccf8, type: 3}
 --- !u!4 &485490964
 Transform:
   m_ObjectHideFlags: 0
@@ -1458,6 +1459,8 @@ MonoBehaviour:
   gameOverText: {fileID: 1460207778}
   progressBar: {fileID: 1481312947}
   currentlyAtShop: 0
+  GhostList: []
+  ball: {fileID: 0}
 --- !u!1001 &1023603334
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Pinball : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Pinball : MonoBehaviour
     Rigidbody2D rb;
 
     public string prefabPath = "Prefabs/Balls/Pinball";
+
+    // Bonus value for when we hit a object that we don't care about
+    public int bonus;
     
     // Start is called before the first frame update
     // A Virus has been detected
@@ -32,7 +36,11 @@ public class Pinball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+        if (!collision.gameObject.CompareTag("moblizeBumper"))
+        {
+            GameManager.Instance.addScore(bonus);
+            bonus = 0;
+        }
     }
 
 }

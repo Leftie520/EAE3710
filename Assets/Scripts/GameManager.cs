@@ -104,6 +104,8 @@ public class GameManager: MonoBehaviour
 
     public List<GameObject> GhostList;
 
+    public Pinball ball;
+
 
     /// <summary>
     /// initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
@@ -322,8 +324,6 @@ public class GameManager: MonoBehaviour
         //    //prepareForLevelUp();
         //    return;
         //}
-
-        Pinball ball;
             
         // getting the next ball in the sequence, calls a game over if there aren't any left.
         try

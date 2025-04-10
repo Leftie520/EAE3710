@@ -20,7 +20,8 @@ public class PrefabDB : MonoBehaviour
         Moon = 1,
         Mercury = 2,
         Kepler = 3,
-        Clone = 4
+        Clone = 4,
+        Moblize = 5
     }
 
 
