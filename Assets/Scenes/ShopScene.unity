@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &22420170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22420171}
+  m_Layer: 0
+  m_Name: ShopSpaceParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &22420171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22420170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.030219465, y: -1.0093203, z: -0.06577437}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27475853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1180,7 @@ MonoBehaviour:
   progressBar: {fileID: 0}
   currentlyAtShop: 0
   GhostList: []
+  ball: {fileID: 0}
 --- !u!4 &900057157
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,3 +1724,4 @@ SceneRoots:
   - {fileID: 27475855}
   - {fileID: 869506070}
   - {fileID: 843392260}
+  - {fileID: 22420171}

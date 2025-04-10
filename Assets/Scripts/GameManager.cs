@@ -407,7 +407,6 @@ public class GameManager: MonoBehaviour
                     obj.SetActive(false);
             }
         }
-
         SceneManager.LoadScene("ShopScene", LoadSceneMode.Additive);
 
         Debug.Log("Starting shop");
@@ -454,5 +453,4 @@ public class GameManager: MonoBehaviour
         }
         GhostList.Clear();
     }
-
 }

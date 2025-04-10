@@ -60,7 +60,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     public SpriteRenderer currentBall;
 
-    private List<ShopSpaceButton> gameObjectsOnSale;
+    //private List<ShopSpaceButton> gameObjectsOnSale;
+    private List<GameObject> gameObjectsOnSale;
+
 
     /// <summary>
     /// called when the manager is first created
@@ -90,7 +92,8 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        gameObjectsOnSale = new List<ShopSpaceButton>();
+        //gameObjectsOnSale = new List<ShopSpaceButton>();
+        gameObjectsOnSale = new List<GameObject>();
         StartShop();
     }
 
@@ -106,8 +109,6 @@ public class ShopManager : MonoBehaviour
 
             if (instance == null)
             {
-
-
                 Debug.Log("ShopManager DNE");
             }
 
@@ -119,9 +120,6 @@ public class ShopManager : MonoBehaviour
 
     public void StartShop()
     {
-
-        
-
         // it works but I hate it
         //await SceneManager.LoadSceneAsync("ShopScene", LoadSceneMode.Single);
         //StartCoroutine(LoadShopScene());
@@ -129,6 +127,7 @@ public class ShopManager : MonoBehaviour
         currentLevel = StaticData.currentLevel;
         Debug.Log("new level is in shop: " + currentLevel);
         nextLevelText.text = "Next Level: " + currentLevel.ToString();
+        gameObjectsOnSale = new List<GameObject>();
 
         rollShop();
         updateCurrLayoutUI();
@@ -148,20 +147,28 @@ public class ShopManager : MonoBehaviour
 
     public void rollShop()
     {
+        foreach (ShopSpaceButton button in FindObjectsOfType<ShopSpaceButton>())
+        {
+            Destroy(button.gameObject);
+        }
+
+        GameObject shopParent = GameObject.Find("ShopSpaceParent"); // Make sure this exists in the ShopScene
         int saleCount = gameObjectsOnSale.Count;
         for(int i = 0; i < saleCount; i++)
         {
-            Destroy(gameObjectsOnSale[0]);
-            gameObjectsOnSale.Remove(gameObjectsOnSale[0]);
+            Destroy(gameObjectsOnSale[i]);
         }
+        gameObjectsOnSale.Clear();
 
         for (int i = 0; i < 3; i++)
         {
-            ShopSpaceButton newShopItem = (ShopSpaceButton)Resources.Load("Prefabs/ShopSpace", typeof(ShopSpaceButton));
+            //ShopSpaceButton newShopItem = (ShopSpaceButton)Resources.Load("Prefabs/ShopSpace", typeof(ShopSpaceButton));
+            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
+            newShopItem.transform.SetParent(shopParent.transform);
             gameObjectsOnSale.Add(newShopItem);
 
-            newShopItem.descriptionReference = descriptionText;
+            //newShopItem.descriptionReference = descriptionText;
             
         }
     }
@@ -177,6 +184,12 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     public void headToGame()
     {
+        for (int i = 0; i < gameObjectsOnSale.Count; i++)
+        {
+            Destroy(gameObjectsOnSale[i]);
+        }
+        gameObjectsOnSale.Clear();
+
         Debug.Log("attempting to load game");
         //GameManager.instance.currentlyAtShop = false;
         Scene gameScene = SceneManager.GetSceneByName("GameScene");
