@@ -3,11 +3,14 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler
+public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 {
 
     public GameObject itemForSale;
+
+    public TMP_Text descriptionReference;
 
     public int cost;
 
@@ -50,4 +53,8 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler
         //Update Money Value
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        descriptionReference.text = "test";
+    }
 }

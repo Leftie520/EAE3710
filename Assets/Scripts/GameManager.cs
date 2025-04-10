@@ -270,10 +270,10 @@ public class GameManager: MonoBehaviour
         progressBar.transform.localScale = new Vector3(3.5f, progress * 9.5f, 1f);
         progressBar.transform.position = new Vector3(0f, -1.35f + 4.25f * progress, 0f);
 
-        if (progress > 1f)
+        if (progress >= 1f)
         {
             progressBar.transform.localScale = new Vector3(3.5f, 11.25f, 1f);
-            progressBar.transform.position = new Vector3(0f, -1.35f, 0f);
+            progressBar.transform.position = new Vector3(0f, 4.25f, 0f);
         }
 
     }
