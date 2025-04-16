@@ -7,7 +7,7 @@ using TMPro;
 using Unity.VisualScripting;
 using static PrefabDB;
 
-public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
+public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public GameObject itemForSale;
@@ -61,5 +61,10 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
     public void OnPointerEnter(PointerEventData eventData)
     {
         descriptionReference.text = description;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        descriptionReference.text = "";
     }
 }

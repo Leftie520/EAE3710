@@ -61,7 +61,7 @@ public class ShopManager : MonoBehaviour
     public SpriteRenderer currentBall;
 
     //private List<ShopSpaceButton> gameObjectsOnSale;
-    private List<GameObject> gameObjectsOnSale;
+    private List<ShopSpaceButton> gameObjectsOnSale;
 
 
     /// <summary>
@@ -93,7 +93,7 @@ public class ShopManager : MonoBehaviour
         }
 
         //gameObjectsOnSale = new List<ShopSpaceButton>();
-        gameObjectsOnSale = new List<GameObject>();
+        gameObjectsOnSale = new List<ShopSpaceButton>();
         StartShop();
     }
 
@@ -127,7 +127,7 @@ public class ShopManager : MonoBehaviour
         currentLevel = StaticData.currentLevel;
         Debug.Log("new level is in shop: " + currentLevel);
         nextLevelText.text = "Next Level: " + currentLevel.ToString();
-        gameObjectsOnSale = new List<GameObject>();
+        gameObjectsOnSale = new List<ShopSpaceButton>();
 
         rollShop();
         updateCurrLayoutUI();
@@ -162,13 +162,13 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            //ShopSpaceButton newShopItem = (ShopSpaceButton)Resources.Load("Prefabs/ShopSpace", typeof(ShopSpaceButton));
-            GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
+            ShopSpaceButton newShopItem = (ShopSpaceButton)Resources.Load("Prefabs/ShopSpace", typeof(ShopSpaceButton));
+            //GameObject newShopItem = (GameObject)Resources.Load("Prefabs/ShopSpace", typeof(GameObject));
             newShopItem = GameObject.Instantiate(newShopItem, new Vector3(5f * (i - 1), 2f, 0), new Quaternion());
             newShopItem.transform.SetParent(shopParent.transform);
             gameObjectsOnSale.Add(newShopItem);
 
-            //newShopItem.descriptionReference = descriptionText;
+            newShopItem.descriptionReference = descriptionText;
             
         }
     }
