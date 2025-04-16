@@ -27,6 +27,8 @@ public class PrefabDB : MonoBehaviour
 
     public Dictionary<Bumpers, GameObject> bumperTable;
 
+    public Dictionary<Bumpers, string> bumperDescs;
+
     [SerializeField]
     private GameObject[] bumpersAsGOs;
 
@@ -47,6 +49,7 @@ public class PrefabDB : MonoBehaviour
         }
 
         bumperTable = new Dictionary<Bumpers, GameObject>();
+        bumperDescs = new Dictionary<Bumpers, string>();
         Debug.Log(bumpersAsGOs.Length);
 
         // populating the bumperTable
@@ -55,6 +58,12 @@ public class PrefabDB : MonoBehaviour
             bumperTable.Add((Bumpers)i, bumpersAsGOs[i]);
             Debug.Log("Bumper: " + bumpersAsGOs[i].ToString());
         }
+
+        bumperDescs.Add(Bumpers.Basic, "Basic Bumper:\n\nA basic bumper which scores 300 points when hit.");
+        bumperDescs.Add(Bumpers.Moon, "Moon Bumper:\n\nA very large bumper which scores 100 points when hit");
+        bumperDescs.Add(Bumpers.Mercury, "Mercury Bumper:\n\nA bumper which launches the ball very fast and scores 500 points when hit.");
+        bumperDescs.Add(Bumpers.Kepler, "Kepler Bumper:\n\nA bumper which gives scores 200 points on its first hit, 400 on its second, and so on... nets 2000 points and explodes on its 5th hit.");
+        bumperDescs.Add(Bumpers.Clone, "Clone Bumper:\n\nA bumper which spawns ghost balls when hit. Scores 100 points when hit.");
 
     }
 

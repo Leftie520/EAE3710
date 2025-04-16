@@ -225,6 +225,7 @@ public class ShopManager : MonoBehaviour
 
             foreach (Transform transform in newBumpersPos)
             {
+                
                 GameObject obj = Instantiate(CurrentLayout.Instance.currBumper, table.transform);
                 obj.transform.localPosition = transform.localPosition;
 

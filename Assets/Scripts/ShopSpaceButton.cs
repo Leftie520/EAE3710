@@ -4,6 +4,8 @@ using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
+using static PrefabDB;
 
 public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
 {
@@ -11,6 +13,7 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
     public GameObject itemForSale;
 
     public TMP_Text descriptionReference;
+    public string description;
 
     public int cost;
 
@@ -38,6 +41,8 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
         // accessing a randomly generated bumper from the enum
         PrefabDB.Bumpers bumper = (PrefabDB.Bumpers)index;
 
+        description = PrefabDB.Instance.bumperDescs[bumper];
+
         // converting the enum to a GO and returning it
         return PrefabDB.Instance.bumperTable[bumper];
     }
@@ -55,6 +60,6 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        descriptionReference.text = "test";
+        descriptionReference.text = description;
     }
 }
