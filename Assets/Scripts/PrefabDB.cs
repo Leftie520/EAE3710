@@ -66,6 +66,7 @@ public class PrefabDB : MonoBehaviour
         bumperDescs.Add(Bumpers.Clone, "Clone Bumper:\n\nA bumper which spawns ghost balls when hit. Scores 100 points when hit.");
         bumperDescs.Add(Bumpers.Moblize, "Mobilize Bumper:\n\nA bumper which scores 150 points on its first hit, 250 on its second hit, and so on...");
 
+
     }
 
 

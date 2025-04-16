@@ -66,5 +66,6 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
     public void OnPointerExit(PointerEventData eventData)
     {
         descriptionReference.text = "";
+
     }
 }
