@@ -64,6 +64,8 @@ public class PrefabDB : MonoBehaviour
         bumperDescs.Add(Bumpers.Mercury, "Mercury Bumper:\n\nA bumper which launches the ball very fast and scores 500 points when hit.");
         bumperDescs.Add(Bumpers.Kepler, "Kepler Bumper:\n\nA bumper which gives scores 200 points on its first hit, 400 on its second, and so on... nets 2000 points and explodes on its 5th hit.");
         bumperDescs.Add(Bumpers.Clone, "Clone Bumper:\n\nA bumper which spawns ghost balls when hit. Scores 100 points when hit.");
+        bumperDescs.Add(Bumpers.Moblize, "Mobilize Bumper:\n\nA bumper which scores 150 points on its first hit, 250 on its second hit, and so on..." +
+            ".");
 
     }
 

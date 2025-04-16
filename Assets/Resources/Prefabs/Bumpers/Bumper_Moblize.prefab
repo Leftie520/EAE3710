@@ -139,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 150
   veloctiy: 20
+  description: 

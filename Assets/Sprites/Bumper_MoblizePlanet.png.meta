@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bumper_MoblizePlanet_0: 1947029769600124089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
