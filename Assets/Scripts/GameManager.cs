@@ -254,7 +254,7 @@ public class GameManager: MonoBehaviour
     {
         //Debug.Log("Add Score Method is ran");
         StaticData.score += additive;
-        Debug.Log(StaticData.score  + " is the new score.");
+        Debug.Log(StaticData.score + " is the new score.");
 
         // updating the score text field
         scoreText.text = "Current Score: " + StaticData.score;
@@ -265,7 +265,7 @@ public class GameManager: MonoBehaviour
         //       at 100*t% completion: yPos = -1.35 + (9.5/2)t, yScale = 9.5t
 
         float progress = StaticData.score / (float)levelScoreTargets[StaticData.currentLevel];
-        Debug.Log(progress);
+        // Debug.Log(progress);
 
         progressBar.transform.localScale = new Vector3(3.5f, progress * 9.5f, 1f);
         progressBar.transform.position = new Vector3(0f, -1.35f + 4.25f * progress, 0f);
@@ -301,19 +301,19 @@ public class GameManager: MonoBehaviour
     {
         //Debug.Log("Current Score: " + StaticData.score);
         //Debug.Log("Level Score Target: " + levelScoreTargets[StaticData.currentLevel]);
-        Debug.Log("Next Level: " + levelScoreTargets[StaticData.currentLevel].ToString());
-        Debug.Log("Current Level: " + StaticData.currentLevel);
+        //Debug.Log("Next Level: " + levelScoreTargets[StaticData.currentLevel].ToString());
+        //Debug.Log("Current Level: " + StaticData.currentLevel);
         killAllGhostBalls();
 
         if (StaticData.score >= levelScoreTargets[StaticData.currentLevel])
         {
-            Debug.Log("Score reached! Heading to shop.");
+            //Debug.Log("Score reached! Heading to shop.");
             headToShop();
             return;
         }
         else
         {
-            Debug.Log("Score not reached yet. Keep playing.");
+            //Debug.Log("Score not reached yet. Keep playing.");
         }
 
         //Debug.Log("Spawn Ball Method is ran");
@@ -343,6 +343,8 @@ public class GameManager: MonoBehaviour
 
         GameObject ballAsGO = (GameObject)Resources.Load(ball.prefabPath, typeof(GameObject));
         ballAsGO = GameObject.Instantiate(ballAsGO, new Vector3(7.82f, -4f, 0), new Quaternion());
+
+        ball = ballAsGO.GetComponent<Pinball>();
 
         Camera camera = Camera.main; // This ensures you're using the main camera
         if (camera != null)
@@ -409,13 +411,13 @@ public class GameManager: MonoBehaviour
         }
         SceneManager.LoadScene("ShopScene", LoadSceneMode.Additive);
 
-        Debug.Log("Starting shop");
+        //Debug.Log("Starting shop");
         ShopManager.Instance.StartShop();
     }
 
     private void prepareForLevelUp()
     {
-        Debug.Log("levelling up");
+        //Debug.Log("levelling up");
 
         if (StaticData.score < levelScoreTargets[StaticData.currentLevel])
         {
@@ -424,7 +426,7 @@ public class GameManager: MonoBehaviour
 
         // reseting a bunch of values for when the next level starts
         StaticData.currentLevel++;
-        Debug.Log("new level is " + StaticData.currentLevel);
+        //Debug.Log("new level is " + StaticData.currentLevel);
         StaticData.score = 0;
         timer = 30f;
         ballLineupIndex = 0;

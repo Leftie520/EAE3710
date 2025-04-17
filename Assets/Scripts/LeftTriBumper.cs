@@ -46,7 +46,7 @@ public class LeftTriBumper : MonoBehaviour
 
     protected virtual void Score(int score)
     {
-        Debug.Log("Left Tri Bumper Add Score");
+        //Debug.Log("Left Tri Bumper Add Score");
         GameManager.Instance.addScore(score);
     }
 

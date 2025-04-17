@@ -50,13 +50,13 @@ public class PrefabDB : MonoBehaviour
 
         bumperTable = new Dictionary<Bumpers, GameObject>();
         bumperDescs = new Dictionary<Bumpers, string>();
-        Debug.Log(bumpersAsGOs.Length);
+        //Debug.Log(bumpersAsGOs.Length);
 
         // populating the bumperTable
         for (int i = 0; i < bumpersAsGOs.Length; i++)
         {
             bumperTable.Add((Bumpers)i, bumpersAsGOs[i]);
-            Debug.Log("Bumper: " + bumpersAsGOs[i].ToString());
+            //Debug.Log("Bumper: " + bumpersAsGOs[i].ToString());
         }
 
         bumperDescs.Add(Bumpers.Basic, "Basic Bumper:\n\nA basic bumper which scores 300 points when hit.");

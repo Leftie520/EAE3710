@@ -109,7 +109,7 @@ public class ShopManager : MonoBehaviour
 
             if (instance == null)
             {
-                Debug.Log("ShopManager DNE");
+                //Debug.Log("ShopManager DNE");
             }
 
             return instance;
@@ -125,7 +125,7 @@ public class ShopManager : MonoBehaviour
         //StartCoroutine(LoadShopScene());
 
         currentLevel = StaticData.currentLevel;
-        Debug.Log("new level is in shop: " + currentLevel);
+        //Debug.Log("new level is in shop: " + currentLevel);
         nextLevelText.text = "Next Level: " + currentLevel.ToString();
         gameObjectsOnSale = new List<ShopSpaceButton>();
 

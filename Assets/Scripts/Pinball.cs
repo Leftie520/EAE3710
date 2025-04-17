@@ -27,19 +27,21 @@ public class Pinball : MonoBehaviour
         {
             //Debug.Log("Pinball update");
             GameManager.Instance.SpawnBall();
-            Debug.Log("Ball dying");
+            //Debug.Log("Ball dying");
             Destroy(this.gameObject);
         }
             
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("moblizeBumper"))
         {
+            //Debug.Log("Bonus: " + bonus);
             GameManager.Instance.addScore(bonus);
             bonus = 0;
+            //Debug.Log("MOBLIZE IS ACTIVE");
         }
     }
 

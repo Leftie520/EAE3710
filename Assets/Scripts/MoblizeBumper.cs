@@ -7,7 +7,7 @@ public class MoblizeBumper : Bumper
     {
         base.OnCollisionEnter2D(col);
         score += 100;
-        Debug.Log(score);
+        //Debug.Log(score);
         GameManager.instance.ball.bonus += 100;
     }
 }
