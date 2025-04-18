@@ -1,0 +1,742 @@
+fileFormatVersion: 2
+guid: 541cea73afce6264fa09a6fb328a4142
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5041916624845065290
+    second: laser_anims_0
+  - first:
+      213: -8078293682708506442
+    second: laser_anims_1
+  - first:
+      213: 5025917198291137140
+    second: laser_anims_2
+  - first:
+      213: -2296141633957584331
+    second: laser_anims_3
+  - first:
+      213: -6367201569731352351
+    second: laser_anims_4
+  - first:
+      213: -4300722643504106156
+    second: laser_anims_5
+  - first:
+      213: -8364275487939039557
+    second: laser_anims_6
+  - first:
+      213: 2817512587617256090
+    second: laser_anims_7
+  - first:
+      213: 8817811068351072348
+    second: laser_anims_8
+  - first:
+      213: 4817539356725421377
+    second: laser_anims_9
+  - first:
+      213: 6834743634825669836
+    second: laser_anims_10
+  - first:
+      213: -3097818916924474614
+    second: laser_anims_11
+  - first:
+      213: -4696001900349326001
+    second: laser_anims_12
+  - first:
+      213: -880497442140553536
+    second: laser_anims_13
+  - first:
+      213: -2009419783212748174
+    second: laser_anims_14
+  - first:
+      213: -6300921100159389571
+    second: laser_anims_15
+  - first:
+      213: -7366520513267534552
+    second: laser_anims_16
+  - first:
+      213: -5799790503468728251
+    second: laser_anims_17
+  - first:
+      213: -4534913842352943086
+    second: laser_anims_18
+  - first:
+      213: -6852787441756669007
+    second: laser_anims_19
+  - first:
+      213: -9311615406693586
+    second: laser_anims_20
+  - first:
+      213: 4428875527956706002
+    second: laser_anims_21
+  - first:
+      213: -2451502334120828965
+    second: laser_anims_22
+  - first:
+      213: 2997737302197246070
+    second: laser_anims_23
+  - first:
+      213: 8197451802061766904
+    second: laser_anims_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: laser_anims_0
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 729
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4cc603057c78f540800000000000000
+      internalID: 5041916624845065290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_1
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 729
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b890ea32b224ef80800000000000000
+      internalID: -8078293682708506442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_2
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 729
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4727baa3015afb540800000000000000
+      internalID: 5025917198291137140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_3
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 729
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53229f179577220e0800000000000000
+      internalID: -2296141633957584331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_4
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 729
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e86ade38e723a7a0800000000000000
+      internalID: -6367201569731352351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_5
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 729
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455757cba83c054c0800000000000000
+      internalID: -4300722643504106156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_6
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 729
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbee2e172cf1ceb80800000000000000
+      internalID: -8364275487939039557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_7
+      rect:
+        serializedVersion: 2
+        x: 1899
+        y: 729
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a924e1745c0d91720800000000000000
+      internalID: 2817512587617256090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_8
+      rect:
+        serializedVersion: 2
+        x: 2179
+        y: 729
+        width: 122
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58c299a2782f5a70800000000000000
+      internalID: 8817811068351072348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_9
+      rect:
+        serializedVersion: 2
+        x: 2379
+        y: 729
+        width: 122
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145251145865bd240800000000000000
+      internalID: 4817539356725421377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_10
+      rect:
+        serializedVersion: 2
+        x: 2699
+        y: 729
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc65a4bf13e9de50800000000000000
+      internalID: 6834743634825669836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_11
+      rect:
+        serializedVersion: 2
+        x: 3219
+        y: 729
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b3b36ab165205d0800000000000000
+      internalID: -3097818916924474614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_12
+      rect:
+        serializedVersion: 2
+        x: 3739
+        y: 729
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d7e11f62374deb0800000000000000
+      internalID: -4696001900349326001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 199
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce729fcd38d7c3f0800000000000000
+      internalID: -880497442140553536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_14
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 199
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27236f08a5b1d14e0800000000000000
+      internalID: -2009419783212748174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_15
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 199
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d707c33a4a1ae88a0800000000000000
+      internalID: -6300921100159389571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_16
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 199
+        width: 322
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8257f086f9cd4c990800000000000000
+      internalID: -7366520513267534552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_17
+      rect:
+        serializedVersion: 2
+        x: 2179
+        y: 199
+        width: 102
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54000150441038fa0800000000000000
+      internalID: -5799790503468728251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_18
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 199
+        width: 102
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2101d8b23efb011c0800000000000000
+      internalID: -4534913842352943086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_19
+      rect:
+        serializedVersion: 2
+        x: 2699
+        y: 199
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbf5dc112206e0a0800000000000000
+      internalID: -6852787441756669007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_20
+      rect:
+        serializedVersion: 2
+        x: 2949
+        y: 199
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e232667922beedff0800000000000000
+      internalID: -9311615406693586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_21
+      rect:
+        serializedVersion: 2
+        x: 3219
+        y: 199
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2b746d3d6867d30800000000000000
+      internalID: 4428875527956706002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_22
+      rect:
+        serializedVersion: 2
+        x: 3469
+        y: 199
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdfdfa0ad938afdd0800000000000000
+      internalID: -2451502334120828965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_23
+      rect:
+        serializedVersion: 2
+        x: 3739
+        y: 199
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6789763913a1a9920800000000000000
+      internalID: 2997737302197246070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laser_anims_24
+      rect:
+        serializedVersion: 2
+        x: 3989
+        y: 199
+        width: 72
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f007456bf233c170800000000000000
+      internalID: 8197451802061766904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
