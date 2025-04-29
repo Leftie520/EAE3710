@@ -8,13 +8,13 @@ public class CurrentLayout : MonoBehaviour
     // we can add other fields for the other enums once we have items to put in the enums...
     public GameObject currBumper;
 
-    public GameObject currSpinner; // newly added: stores the currently equipped spinner
+    public GameObject currSpinner; // added spinner
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currBumper = PrefabDB.Instance.bumperTable[PrefabDB.Bumpers.Basic];
-        currSpinner = PrefabDB.Instance.spinnerTable[PrefabDB.Spinners.Basic]; // newly added: initialize current spinner with Basic
+        currSpinner = PrefabDB.Instance.spinnerTable[PrefabDB.Spinners.Basic]; 
     }
 
     private void Awake()

@@ -8,7 +8,7 @@ public class PrefabDB : MonoBehaviour
     private static PrefabDB instance;
 
     // Ball types 
-    //I can work on new balls if we really have time...
+    //I can work on new balls if we really have time left...
     public enum Balls
     {
         Basic
