@@ -661,6 +661,14 @@ MonoBehaviour:
   - {fileID: 2371379698675314730, guid: ab06972b6f46dfa47991585cc3eb130a, type: 3}
   - {fileID: 1897968600278801600, guid: 32518d09ef3820f488e4340ae139cf4d, type: 3}
   - {fileID: 5605459114323068921, guid: 1dc79bfc5580c344fa5a11319dc3ccf8, type: 3}
+  - {fileID: 8697320726797981110, guid: 246da46b48f22a1439527135c72ef689, type: 3}
+  - {fileID: 1352394340326473434, guid: 31078c176d98ae94fa8d1cc18021a23a, type: 3}
+  - {fileID: 5725813783671447195, guid: e3265cf5a1b28304aaf693c985a4fbcb, type: 3}
+  spinnersAsGOs:
+  - {fileID: 3108881535451373014, guid: eb79c119e77ed814e81b37cbaa8f80be, type: 3}
+  - {fileID: 5119079081665319870, guid: 0723836163d09c84dbb9e59629e38720, type: 3}
+  - {fileID: 2852917648155075437, guid: a427e2ad7d3deb343aaa0aee50231814, type: 3}
+  - {fileID: 2957732523239425870, guid: 0ca35a918d1a84e7384e29b1bc324e6d, type: 3}
 --- !u!4 &485490964
 Transform:
   m_ObjectHideFlags: 0

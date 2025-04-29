@@ -63,14 +63,18 @@ public class ShopManager : MonoBehaviour
     //private List<ShopSpaceButton> gameObjectsOnSale;
     private List<ShopSpaceButton> gameObjectsOnSale;
 
+    // stores what type each shop item is
+    private List<bool> isBumperList = new List<bool>();
+
+    // stores which enum index it corresponds to
+    private List<int> itemIndexList = new List<int>();
+
 
     /// <summary>
     /// called when the manager is first created
     /// </summary>
     private void Awake()
     {
-
-
 
         if (instance == null)
         {
@@ -154,11 +158,15 @@ public class ShopManager : MonoBehaviour
 
         GameObject shopParent = GameObject.Find("ShopSpaceParent"); // Make sure this exists in the ShopScene
         int saleCount = gameObjectsOnSale.Count;
-        for(int i = 0; i < saleCount; i++)
+        for (int i = 0; i < saleCount; i++)
         {
             Destroy(gameObjectsOnSale[i]);
         }
         gameObjectsOnSale.Clear();
+
+        // clear item type lists
+        isBumperList.Clear();
+        itemIndexList.Clear();
 
         for (int i = 0; i < 3; i++)
         {
@@ -169,7 +177,23 @@ public class ShopManager : MonoBehaviour
             gameObjectsOnSale.Add(newShopItem);
 
             newShopItem.descriptionReference = descriptionText;
-            
+
+            // randomly choose bumper or spinner
+            bool isBumper = UnityEngine.Random.value < 0.5f;
+            isBumperList.Add(isBumper);
+
+            if (isBumper)
+            {
+                int index = UnityEngine.Random.Range(0, Enum.GetValues(typeof(PrefabDB.Bumpers)).Length);
+                itemIndexList.Add(index);
+                newShopItem.GetComponent<SpriteRenderer>().sprite = PrefabDB.Instance.bumperTable[(PrefabDB.Bumpers)index].GetComponent<SpriteRenderer>().sprite;
+            }
+            else
+            {
+                int index = UnityEngine.Random.Range(0, Enum.GetValues(typeof(PrefabDB.Spinners)).Length);
+                itemIndexList.Add(index);
+                newShopItem.GetComponent<SpriteRenderer>().sprite = PrefabDB.Instance.spinnerTable[(PrefabDB.Spinners)index].GetComponent<SpriteRenderer>().sprite;
+            }
         }
     }
 
@@ -177,6 +201,10 @@ public class ShopManager : MonoBehaviour
     {
         currentBumper.sprite = CurrentLayout.Instance.currBumper.GetComponent<SpriteRenderer>().sprite;
         currentBumper.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
+
+        // update spinner image too
+        currentSpinner.sprite = CurrentLayout.Instance.currSpinner.GetComponent<SpriteRenderer>().sprite;
+        currentSpinner.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
     }
 
     /// <summary>
@@ -225,19 +253,16 @@ public class ShopManager : MonoBehaviour
 
             foreach (Transform transform in newBumpersPos)
             {
-                
+
                 GameObject obj = Instantiate(CurrentLayout.Instance.currBumper, table.transform);
                 obj.transform.localPosition = transform.localPosition;
 
                 obj.transform.localScale = new Vector3(.65f, .65f, .65f);
                 if (CurrentLayout.Instance.currBumper == PrefabDB.Instance.bumperTable[PrefabDB.Bumpers.Moon])
                 {
-                    obj.transform.localScale = obj.transform.localScale /.65f;
+                    obj.transform.localScale = obj.transform.localScale / .65f;
 
                 }
-
-
-
 
             }
             //GameManager.instance.SpawnBall();
