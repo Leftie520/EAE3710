@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -311,8 +312,10 @@ public class GameManager: MonoBehaviour
             headToShop();
             return;
         }
-        else
+        else if (timer <= 0f)
         {
+            endGame();
+            return;
             //Debug.Log("Score not reached yet. Keep playing.");
         }
 
@@ -377,9 +380,7 @@ public class GameManager: MonoBehaviour
 
         setFlippersEnabled(true);
 
-        // Hey this makes the timer respective to each ball
-        timer = 30f;
-        timerText.text = "Time: 30";
+        // This makes the timer respective to each ball
         ballInField = false;
 
         
@@ -417,7 +418,7 @@ public class GameManager: MonoBehaviour
 
     private void prepareForLevelUp()
     {
-        //Debug.Log("levelling up");
+        Debug.Log("levelling up");
 
         if (StaticData.score < levelScoreTargets[StaticData.currentLevel])
         {
@@ -434,6 +435,11 @@ public class GameManager: MonoBehaviour
         scoreTargetText.text = "Score to Beat: " + levelScoreTargets[StaticData.currentLevel].ToString();
         currentLevelText.text = "Level: " + (StaticData.currentLevel + 1).ToString();
         scoreText.text = "Current Score: " + StaticData.score;
+        ballInField = false;
+
+        // resetting the progress bar
+        progressBar.transform.localScale = new Vector3(3.5f, 0f, 1f);
+        progressBar.transform.position = new Vector3(0f, -1.35f , 0f);
         // making the game-based information invisible since it's not needed in the shop
         //timerText.enabled = false;
         //currentLevelText.enabled = false;
