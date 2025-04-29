@@ -734,7 +734,32 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      laser_anims_0: 5041916624845065290
+      laser_anims_1: -8078293682708506442
+      laser_anims_10: 6834743634825669836
+      laser_anims_11: -3097818916924474614
+      laser_anims_12: -4696001900349326001
+      laser_anims_13: -880497442140553536
+      laser_anims_14: -2009419783212748174
+      laser_anims_15: -6300921100159389571
+      laser_anims_16: -7366520513267534552
+      laser_anims_17: -5799790503468728251
+      laser_anims_18: -4534913842352943086
+      laser_anims_19: -6852787441756669007
+      laser_anims_2: 5025917198291137140
+      laser_anims_20: -9311615406693586
+      laser_anims_21: 4428875527956706002
+      laser_anims_22: -2451502334120828965
+      laser_anims_23: 2997737302197246070
+      laser_anims_24: 8197451802061766904
+      laser_anims_3: -2296141633957584331
+      laser_anims_4: -6367201569731352351
+      laser_anims_5: -4300722643504106156
+      laser_anims_6: -8364275487939039557
+      laser_anims_7: 2817512587617256090
+      laser_anims_8: 8817811068351072348
+      laser_anims_9: 4817539356725421377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

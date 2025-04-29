@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 9f5c720ddf3196c40bab9b0ec55d7e4d
+guid: 8d8d7b9bed04dc845beef4724a3b2145
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1484732471256367576
-    second: Title_Background_0
+      213: -4250803080943026978
+    second: Title_Image_0
   - first:
-      213: -2790686310278901194
-    second: Title_Background_1
+      213: 3168778418604348592
+    second: Title_Image_1
   - first:
-      213: -8713353312111910749
-    second: Title_Background_2
+      213: -5468835953311221021
+    second: Title_Image_2
   - first:
-      213: -5161599348688320023
-    second: Title_Background_3
+      213: 927880248241484949
+    second: Title_Image_3
   - first:
-      213: 1164449469234995206
-    second: Title_Background_4
+      213: -597903438657858603
+    second: Title_Image_4
   - first:
-      213: -8366999883060756246
-    second: Title_Background_5
+      213: 363705559830585820
+    second: Title_Image_5
   - first:
-      213: 8636255924284198989
-    second: Title_Background_6
+      213: -9098176780210527919
+    second: Title_Image_6
   - first:
-      213: -8212316056249344043
-    second: Title_Background_7
+      213: 5944167790277920450
+    second: Title_Image_7
   - first:
-      213: -5122069408605035938
-    second: Title_Background_8
+      213: 894805037078154643
+    second: Title_Image_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Title_Background_0
+      name: Title_Image_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 659
+        y: 929
+        width: 142
+        height: 272
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82eb6401fab256be0800000000000000
-      internalID: -1484732471256367576
+      spriteID: edc314e9e1d1205c0800000000000000
+      internalID: -4250803080943026978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_1
+      name: Title_Image_1
       rect:
         serializedVersion: 2
-        x: 2859
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 839
+        y: 919
+        width: 52
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 632d744269d7549d0800000000000000
-      internalID: -2790686310278901194
+      spriteID: 0b416dcce23c9fb20800000000000000
+      internalID: 3168778418604348592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_2
+      name: Title_Image_2
       rect:
         serializedVersion: 2
-        x: 5619
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 929
+        y: 919
+        width: 182
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a0a815f353f31780800000000000000
-      internalID: -8713353312111910749
+      spriteID: 3eafff3fcaaca14b0800000000000000
+      internalID: -5468835953311221021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_3
+      name: Title_Image_3
       rect:
         serializedVersion: 2
-        x: 8379
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 1139
+        y: 1039
+        width: 72
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e98b8c5db05e58b0800000000000000
-      internalID: -5161599348688320023
+      spriteID: 594f88e6b2e70ec00800000000000000
+      internalID: 927880248241484949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_4
+      name: Title_Image_4
       rect:
         serializedVersion: 2
-        x: 11139
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 1239
+        y: 919
+        width: 182
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 600e4ac6f94f82010800000000000000
-      internalID: 1164449469234995206
+      spriteID: 5d350d88df1d3b7f0800000000000000
+      internalID: -597903438657858603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_5
+      name: Title_Image_5
       rect:
         serializedVersion: 2
-        x: 13899
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 1449
+        y: 919
+        width: 212
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae0cd66cfe172eb80800000000000000
-      internalID: -8366999883060756246
+      spriteID: cd1698897442c0500800000000000000
+      internalID: 363705559830585820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_6
+      name: Title_Image_6
       rect:
         serializedVersion: 2
-        x: 16659
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 1689
+        y: 919
+        width: 192
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d40925c91052ad770800000000000000
-      internalID: 8636255924284198989
+      spriteID: 15128df2c68ccb180800000000000000
+      internalID: -9098176780210527919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_7
+      name: Title_Image_7
       rect:
         serializedVersion: 2
-        x: 19419
-        y: 1739
-        width: 2562
-        height: 1442
+        x: 1919
+        y: 919
+        width: 162
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,20 +293,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5df550cbe0ef70e80800000000000000
-      internalID: -8212316056249344043
+      spriteID: 2c685d89c1ded7250800000000000000
+      internalID: 5944167790277920450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_Background_8
+      name: Title_Image_8
       rect:
         serializedVersion: 2
-        x: 99
-        y: 99
-        width: 2562
-        height: 1442
+        x: 989
+        y: 239
+        width: 662
+        height: 622
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,8 +315,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e52a331c201cae8b0800000000000000
-      internalID: -5122069408605035938
+      spriteID: 39d064ab07cfa6c00800000000000000
+      internalID: 894805037078154643
       vertices: []
       indices: 
       edges: []
@@ -335,15 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Title_Background_0: -1484732471256367576
-      Title_Background_1: -2790686310278901194
-      Title_Background_2: -8713353312111910749
-      Title_Background_3: -5161599348688320023
-      Title_Background_4: 1164449469234995206
-      Title_Background_5: -8366999883060756246
-      Title_Background_6: 8636255924284198989
-      Title_Background_7: -8212316056249344043
-      Title_Background_8: -5122069408605035938
+      Title_Image_0: -4250803080943026978
+      Title_Image_1: 3168778418604348592
+      Title_Image_2: -5468835953311221021
+      Title_Image_3: 927880248241484949
+      Title_Image_4: -597903438657858603
+      Title_Image_5: 363705559830585820
+      Title_Image_6: -9098176780210527919
+      Title_Image_7: 5944167790277920450
+      Title_Image_8: 894805037078154643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
