@@ -56,6 +56,9 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
         CurrentLayout.Instance.currBumper = itemForSale;
         ShopManager.Instance.updateCurrLayoutUI();
         //Update Money Value
+
+        //resetting the item description field
+        OnPointerExit(eventData);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

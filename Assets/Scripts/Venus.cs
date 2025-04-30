@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class Uranus : MonoBehaviour
+public class Venus : Bumper
 {
     public int score;
-    public float bonusTime = 5f;
+    public float angleOffsetRange = 45f;
 
     void Start()
     {
@@ -26,18 +26,19 @@ public class Uranus : MonoBehaviour
         Vector3 newVel = new Vector3(rb.position.x, rb.position.y) - transform.position;
         newVel.Normalize();
         newVel *= 16;
-        rb.linearVelocity = newVel;
 
-        // Add bonus time to the timer
-        GameManager.Instance.timer += bonusTime;
-        GameManager.Instance.timerText.text = "Time: " + GameManager.Instance.timer.ToString("0.0");
+        // Randomly rotate direction within range
+        float angleOffset = Random.Range(-angleOffsetRange, angleOffsetRange);
+        newVel = Quaternion.Euler(0, 0, angleOffset) * newVel;
+
+        rb.linearVelocity = newVel;
 
         Score(score);
     }
 
     protected virtual void Score(int score)
     {
-        Debug.Log("Bumper Add Score");
+        Debug.Log("Venus Bumper Add Score");
         GameManager.Instance.addScore(score);
     }
 }

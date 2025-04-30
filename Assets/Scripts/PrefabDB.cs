@@ -105,7 +105,7 @@ public class PrefabDB : MonoBehaviour
         {
             if (instance == null)
             {
-                Debug.Log("PrefabDB doesn't exist");
+                //Debug.Log("PrefabDB doesn't exist");
             }
             return instance;
         }

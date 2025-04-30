@@ -178,22 +178,6 @@ public class ShopManager : MonoBehaviour
 
             newShopItem.descriptionReference = descriptionText;
 
-            // randomly choose bumper or spinner
-            bool isBumper = UnityEngine.Random.value < 0.5f;
-            isBumperList.Add(isBumper);
-
-            if (isBumper)
-            {
-                int index = UnityEngine.Random.Range(0, Enum.GetValues(typeof(PrefabDB.Bumpers)).Length);
-                itemIndexList.Add(index);
-                newShopItem.GetComponent<SpriteRenderer>().sprite = PrefabDB.Instance.bumperTable[(PrefabDB.Bumpers)index].GetComponent<SpriteRenderer>().sprite;
-            }
-            else
-            {
-                int index = UnityEngine.Random.Range(0, Enum.GetValues(typeof(PrefabDB.Spinners)).Length);
-                itemIndexList.Add(index);
-                newShopItem.GetComponent<SpriteRenderer>().sprite = PrefabDB.Instance.spinnerTable[(PrefabDB.Spinners)index].GetComponent<SpriteRenderer>().sprite;
-            }
         }
     }
 
@@ -203,8 +187,8 @@ public class ShopManager : MonoBehaviour
         currentBumper.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
 
         // update spinner image too
-        currentSpinner.sprite = CurrentLayout.Instance.currSpinner.GetComponent<SpriteRenderer>().sprite;
-        currentSpinner.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
+        //currentSpinner.sprite = CurrentLayout.Instance.currSpinner.GetComponent<SpriteRenderer>().sprite;
+        //currentSpinner.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
     }
 
     /// <summary>
@@ -218,7 +202,7 @@ public class ShopManager : MonoBehaviour
         }
         gameObjectsOnSale.Clear();
 
-        Debug.Log("attempting to load game");
+        
         //GameManager.instance.currentlyAtShop = false;
         Scene gameScene = SceneManager.GetSceneByName("GameScene");
         if (gameScene.isLoaded)
@@ -241,6 +225,10 @@ public class ShopManager : MonoBehaviour
                 GameObject obj = child.gameObject;
                 if (obj.GetComponent<Bumper>() != null)
                 {
+                    if (obj.GetComponent<Moon>() != null)
+                    {
+                        obj.GetComponent<Moon>().ResetPosition();
+                    }
 
                     Transform oldTransform = obj.transform;
                     Destroy(obj);
@@ -250,7 +238,7 @@ public class ShopManager : MonoBehaviour
                 }
 
             }
-
+            Debug.Log("newBumpers count: " + newBumpersPos.Count);
             foreach (Transform transform in newBumpersPos)
             {
 

@@ -138,4 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 250
+  veloctiy: 14
+  description: 
+  score: 250
   bonusTime: 0.5

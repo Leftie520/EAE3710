@@ -180,10 +180,7 @@ public class GameManager: MonoBehaviour
             {
                 DontDestroyOnLoad(camera.gameObject);
             }
-            else
-            {
-                Debug.Log("Main Camera Not Found");
-            }
+
         }
         else
         {
@@ -255,7 +252,6 @@ public class GameManager: MonoBehaviour
     {
         //Debug.Log("Add Score Method is ran");
         StaticData.score += additive;
-        Debug.Log(StaticData.score + " is the new score.");
 
         // updating the score text field
         scoreText.text = "Current Score: " + StaticData.score;
@@ -359,13 +355,9 @@ public class GameManager: MonoBehaviour
             }
             else
             {
-                Debug.LogError("CameraMovementManager not found on the camera.");
             }
         }
-        else
-        {
-            Debug.LogError("Main camera not found.");
-        }
+
 
         // syncing the ball up with the cameraMovementManager 
         //Camera camera = GameObject.FindAnyObjectByType<Camera>();
@@ -418,7 +410,6 @@ public class GameManager: MonoBehaviour
 
     private void prepareForLevelUp()
     {
-        Debug.Log("levelling up");
 
         if (StaticData.score < levelScoreTargets[StaticData.currentLevel])
         {

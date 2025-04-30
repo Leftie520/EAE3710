@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bumper_Venus_0: -7788046470775168122
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

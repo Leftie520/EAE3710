@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bumper_WhiteDwarf_0: 3276321833116418460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

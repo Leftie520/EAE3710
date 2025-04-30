@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Moon : MonoBehaviour
+public class Moon : Bumper
 {
     public int score;
 
@@ -69,15 +69,10 @@ public class Moon : MonoBehaviour
     public void ResetPosition()
     {
         // Called at the beginning of each level to reset the bumper's position.  Might need to be updated in furture
-
-        StartCoroutine(ResetAfterDelay());
-    }
-
-    private IEnumerator ResetAfterDelay()
-    {
-        yield return new WaitForSeconds(resetDelay);
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
         transform.position = startPos;
+
     }
+
 }

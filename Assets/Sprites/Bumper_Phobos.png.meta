@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bumper_Phobos_0: -2989258411400167941
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
