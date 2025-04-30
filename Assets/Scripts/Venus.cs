@@ -6,7 +6,7 @@ using UnityEngine.U2D;
 public class Venus : Bumper
 {
     public int score;
-    public float angleOffsetRange = 45f;
+    public float angleOffsetRange = 90f;
 
     void Start()
     {
