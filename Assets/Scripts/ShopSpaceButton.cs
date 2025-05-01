@@ -17,34 +17,42 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
 
     public int cost;
 
+    // new fields to track item type
+    public bool isBumper;
+    public int itemIndex;
 
     public void Start()
     {
         cost = 0;
 
         // generating random item for this button
-        itemForSale = generateItem();
-        
+        int bumperCount = PrefabDB.Instance.bumperTable.Count;
+        int spinnerCount = PrefabDB.Instance.spinnerTable.Count;
+        int totalCount = bumperCount + spinnerCount;
+        int index = UnityEngine.Random.Range(0, totalCount);
+
+        if (index < bumperCount)
+        {
+            isBumper = true;
+            itemIndex = index;
+            Bumpers bumper = (Bumpers)itemIndex;
+            itemForSale = PrefabDB.Instance.bumperTable[bumper];
+            description = PrefabDB.Instance.bumperDescs[bumper];
+        }
+        else
+        {
+            isBumper = false;
+            itemIndex = index - bumperCount;
+            Spinners spinner = (Spinners)itemIndex;
+            itemForSale = PrefabDB.Instance.spinnerTable[spinner];
+            description = PrefabDB.Instance.spinnerDescs[spinner];
+        }
+
         SpriteRenderer sprt = GetComponent<SpriteRenderer>();
 
-        
         sprt.sprite = itemForSale.GetComponent<SpriteRenderer>().sprite;
         sprt.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
         sprt.color = Color.white;
-    }
-
-    private GameObject generateItem()
-    {
-        // note that for now we are specifically choosing bumpers because we don't have any items yet :`(
-        int index = UnityEngine.Random.Range(0, PrefabDB.Instance.bumperTable.Count);
-
-        // accessing a randomly generated bumper from the enum
-        PrefabDB.Bumpers bumper = (PrefabDB.Bumpers)index;
-
-        description = PrefabDB.Instance.bumperDescs[bumper];
-
-        // converting the enum to a GO and returning it
-        return PrefabDB.Instance.bumperTable[bumper];
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -53,7 +61,15 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
         Debug.Log("Purchased Something For " + cost + "!");
         Destroy(this.gameObject);
 
-        CurrentLayout.Instance.currBumper = itemForSale;
+        if (isBumper)
+        {
+            CurrentLayout.Instance.currBumper = itemForSale;
+        }
+        else
+        {
+            CurrentLayout.Instance.currSpinner = itemForSale;
+        }
+
         ShopManager.Instance.updateCurrLayoutUI();
         //Update Money Value
 

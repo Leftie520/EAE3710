@@ -168,6 +168,10 @@ public class ShopManager : MonoBehaviour
         isBumperList.Clear();
         itemIndexList.Clear();
 
+        int bumperCount = System.Enum.GetValues(typeof(PrefabDB.Bumpers)).Length;
+        int spinnerCount = System.Enum.GetValues(typeof(PrefabDB.Spinners)).Length;
+        int totalCount = bumperCount + spinnerCount;
+
         for (int i = 0; i < 3; i++)
         {
             ShopSpaceButton newShopItem = (ShopSpaceButton)Resources.Load("Prefabs/ShopSpace", typeof(ShopSpaceButton));
@@ -178,6 +182,20 @@ public class ShopManager : MonoBehaviour
 
             newShopItem.descriptionReference = descriptionText;
 
+            int index = UnityEngine.Random.Range(0, totalCount);
+            if (index < bumperCount)
+            {
+                isBumperList.Add(true);
+                itemIndexList.Add(index);
+                newShopItem.GetComponent<SpriteRenderer>().sprite = PrefabDB.Instance.bumperTable[(PrefabDB.Bumpers)index].GetComponent<SpriteRenderer>().sprite;
+            }
+            else
+            {
+                isBumperList.Add(false);
+                int spinnerIndex = index - bumperCount;
+                itemIndexList.Add(spinnerIndex);
+                newShopItem.GetComponent<SpriteRenderer>().sprite = PrefabDB.Instance.spinnerTable[(PrefabDB.Spinners)spinnerIndex].GetComponent<SpriteRenderer>().sprite;
+            }
         }
     }
 
@@ -202,7 +220,7 @@ public class ShopManager : MonoBehaviour
         }
         gameObjectsOnSale.Clear();
 
-        
+
         //GameManager.instance.currentlyAtShop = false;
         Scene gameScene = SceneManager.GetSceneByName("GameScene");
         if (gameScene.isLoaded)
