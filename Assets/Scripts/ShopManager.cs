@@ -187,8 +187,10 @@ public class ShopManager : MonoBehaviour
         currentBumper.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
 
         // update spinner image too
-        //currentSpinner.sprite = CurrentLayout.Instance.currSpinner.GetComponent<SpriteRenderer>().sprite;
-        //currentSpinner.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
+        Debug.Log("currSpinner is: " + CurrentLayout.Instance.currSpinner);
+
+        currentSpinner.sprite = CurrentLayout.Instance.currSpinner.GetComponent<SpriteRenderer>().sprite;
+        currentSpinner.transform.localScale = new Vector3(0.65f, 0.65f, 1f);
     }
 
     /// <summary>
@@ -218,6 +220,8 @@ public class ShopManager : MonoBehaviour
             }
 
             List<Transform> newBumpersPos = new List<Transform>();
+            List<Transform> newSpinnerPos = new List<Transform>();
+
 
             // replacing every old bumper with an instance of the currently selected bumper.
             foreach (Transform child in table.transform)
@@ -236,6 +240,34 @@ public class ShopManager : MonoBehaviour
                     newBumpersPos.Add(oldTransform);
 
                 }
+                else if(obj.GetComponent<Slot>() != null)
+                {
+                    Transform oldTransform = obj.transform;
+                    Destroy(obj);
+
+                    newSpinnerPos.Add(oldTransform);
+                }
+                else if (obj.GetComponent<DarkMatterSlot>() != null)
+                {
+                    Transform oldTransform = obj.transform;
+                    Destroy(obj);
+
+                    newSpinnerPos.Add(oldTransform);
+                }
+                else if (obj.GetComponent<CometTrailSlot>() != null)
+                {
+                    Transform oldTransform = obj.transform;
+                    Destroy(obj);
+
+                    newSpinnerPos.Add(oldTransform);
+                }
+                else if (obj.GetComponent<WormholeSlot>() != null)
+                {
+                    Transform oldTransform = obj.transform;
+                    Destroy(obj);
+
+                    newSpinnerPos.Add(oldTransform);
+                }
 
             }
             Debug.Log("newBumpers count: " + newBumpersPos.Count);
@@ -251,8 +283,21 @@ public class ShopManager : MonoBehaviour
                     obj.transform.localScale = obj.transform.localScale / .65f;
 
                 }
-
             }
+
+            foreach(Transform transform in newSpinnerPos)
+            {
+                GameObject obj = Instantiate(CurrentLayout.Instance.currSpinner, table.transform);
+                obj.transform.localPosition = transform.localPosition;
+
+                obj.transform.localScale = new Vector3(.65f, .65f, .65f);
+                if (CurrentLayout.Instance.currSpinner == PrefabDB.Instance.spinnerTable[PrefabDB.Spinners.Wormhole])
+                {
+                    obj.transform.localScale = obj.transform.localScale * .40f;
+
+                }
+            }
+
             //GameManager.instance.SpawnBall();
 
             SceneManager.UnloadSceneAsync("ShopScene");

@@ -11,6 +11,7 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
 {
 
     public GameObject itemForSale;
+    public int shopItemIndex;
 
     public TMP_Text descriptionReference;
     public string description;
@@ -36,15 +37,38 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
     private GameObject generateItem()
     {
         // note that for now we are specifically choosing bumpers because we don't have any items yet :`(
-        int index = UnityEngine.Random.Range(0, PrefabDB.Instance.bumperTable.Count);
+        int index = UnityEngine.Random.Range(0, PrefabDB.Instance.shopItemsTable.Count);
+        shopItemIndex = -1;
 
-        // accessing a randomly generated bumper from the enum
-        PrefabDB.Bumpers bumper = (PrefabDB.Bumpers)index;
+        PrefabDB.ShopItems shopItem = (PrefabDB.ShopItems)index;
+        description = PrefabDB.Instance.shopItemsDescs[shopItem];
+        shopItemIndex = index;
+        return PrefabDB.Instance.shopItemsTable[shopItem];
 
-        description = PrefabDB.Instance.bumperDescs[bumper];
+        //if (index < 8)
+        //{
+        //    // accessing a randomly generated bumper from the enum
+        //    PrefabDB.Bumpers bumper = (PrefabDB.Bumpers)index;
 
-        // converting the enum to a GO and returning it
-        return PrefabDB.Instance.bumperTable[bumper];
+        //    description = PrefabDB.Instance.bumperDescs[bumper];
+        //    shopItemIndex = index;
+
+        //    // converting the enum to a GO and returning it
+        //    return PrefabDB.Instance.bumperTable[bumper];
+        //}
+        //else
+        //{
+        //    shopItemIndex = index;
+        //    index = index - 7;
+
+        //    // Accessing a randomly generated spinner from the enum
+        //    PrefabDB.Spinners spinners = (PrefabDB.Spinners)index;
+
+        //    description = PrefabDB.Instance.spinnerDescs[spinners];
+
+        //    // converting the enum to a GO and returning it
+        //    return PrefabDB.Instance.spinnerTable[spinners];
+        //}
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -53,7 +77,11 @@ public class ShopSpaceButton : MonoBehaviour, IPointerDownHandler, IPointerEnter
         Debug.Log("Purchased Something For " + cost + "!");
         Destroy(this.gameObject);
 
-        CurrentLayout.Instance.currBumper = itemForSale;
+        if (shopItemIndex < 8)
+            CurrentLayout.Instance.currBumper = itemForSale;
+        else
+            CurrentLayout.Instance.currSpinner = itemForSale;
+
         ShopManager.Instance.updateCurrLayoutUI();
         //Update Money Value
 
